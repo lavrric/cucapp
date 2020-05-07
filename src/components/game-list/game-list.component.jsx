@@ -95,16 +95,22 @@ let testList = [
 const GameList = () => (
   <div className="game-list">
     <GameItem
+      first
       key={0}
       competitia="Competitia"
       etapa="Etapa"
-      nivel="Nivel"
+      desprePachet="Despre pachet"
       autori={["Autori"]}
       intrebari="Numarul de intrebari"
     />
     <div className="game-list-items">
-      {testList.map(({ ...otherProps }, i) => (
-        <GameItem key={i + 1} grey={(i + 1) % 2} {...otherProps} />
+      {testList.map(({ nivel, intrebari, ...otherProps }, i) => (
+        <GameItem
+          key={i + 1}
+          grey={(i + 1) % 2}
+          desprePachet={`Nivel ${nivel.toLowerCase()}, ${intrebari} intrebari`}
+          {...otherProps}
+        />
       ))}
     </div>
   </div>
