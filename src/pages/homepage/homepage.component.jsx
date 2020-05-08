@@ -1,11 +1,17 @@
 import React from "react";
 import "./homepage.styles.scss";
 
-import GameList from "../../components/game-list/game-list.component";
+import Description from "../../components/description/description.component";
+import Feature from "../../components/feature/feature.component";
 
 const HomePage = () => (
   <div className="homepage">
-    <GameList />
+    <Description />
+    <div className="feature-list">
+      <Feature />
+      <Feature />
+      <Feature />
+    </div>
   </div>
 );
 

@@ -1,10 +1,14 @@
 .homepage {
-  width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 
-  .description {
-    width: 25%;
+  .feature-list {
+    padding-top: 20px;
+    width: 100%;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
