@@ -18,14 +18,18 @@ const testQuestions = [
   },
 ];
 
-class GamePage extends React {
+class GamePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       question: 1,
       showAnswer: false,
+      answer: "",
     };
   }
+  handleChange = (event) => {
+    this.setState({ answer: event.target.value });
+  };
   handleClick = () => {
     if (this.state.showAnswer) {
       this.setState((prevState) => ({
@@ -40,7 +44,7 @@ class GamePage extends React {
   render() {
     return (
       <div className="gamepage">
-        <div className="card">
+        <div className="question-card">
           <div className="intrebare">
             <div className="title">Intrebare: </div>
             {testQuestions[this.state.question - 1].intrebare}
@@ -53,7 +57,29 @@ class GamePage extends React {
             {testQuestions[this.state.question - 1].raspuns}
           </div>
         </div>
-        <CustomButton handleClick={this.handleClick}>Apasa</CustomButton>
+
+        <div className="answer-card">
+          <div className="top">
+            <div className="title">Raspunsul tau:</div>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.answer}
+            ></input>
+          </div>
+
+          <div className="bottom">
+            <div className="info">
+              <div className="title">Scorul curent: 23/30</div>
+            </div>
+            <CustomButton handleClick={this.handleClick}>
+              Arata Raspunsul
+            </CustomButton>
+            <CustomButton handleClick={this.handleClick}>
+              Urmatoarea intrebare
+            </CustomButton>
+          </div>
+        </div>
       </div>
     );
   }

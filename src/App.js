@@ -6,15 +6,15 @@ import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
 import GameList from "./components/game-list/game-list";
 
-class App extends React {
+class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          {/* <Route exact path="/play" component={GamePage} /> */}
-          {/* <Route exact path="/select" component={GameList} /> */}
+          <Route exact path="/play" component={GamePage} />
+          <Route exact path="/select" component={GameList} />
         </Switch>
       </BrowserRouter>
     );
