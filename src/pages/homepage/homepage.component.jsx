@@ -1,5 +1,5 @@
 import React from "react";
-import "./homepage.styles.scss";
+import "./homepage.scss";
 
 import Description from "../../components/description/description.component";
 import Feature from "../../components/feature/feature.component";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./game-item.styles.scss";
+import "./game-item.scss";
 
 const GameItem = ({ competitia, etapa, autori, desprePachet, grey, first }) => (
   <div className={`${grey ? "grey" : ""} ${first ? "first" : ""} game-item`}>

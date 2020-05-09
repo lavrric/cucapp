@@ -1,5 +1,5 @@
 import React from "react";
-import "./description.styles.scss";
+import "./description.scss";
 
 const Description = () => (
   <div className="description">

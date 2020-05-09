@@ -1,15 +1,20 @@
 import React from "react";
-import "./header.styles.scss";
+import { Link } from "react-router-dom";
+import "./header.scss";
 
 const Header = () => (
   <div className="header">
-    <div className="title">CuCapp</div>
+    <Link to="/" className="title">
+      CuCapp
+    </Link>
     <div className="options">
-      <div className="option">Joaca Pachet</div>
-      <div className="option">Joaca Intrebari</div>
-      <div className="option">Cauta Intrebari</div>
-      <div className="option">Inregistreaza-te</div>
-      <div className="option">Despre proiect</div>
+      <Link to="/play" className="option">
+        Joaca Pachet
+      </Link>
+      <Link className="option">Joaca Intrebari</Link>
+      <Link className="option">Cauta Intrebari</Link>
+      <Link className="option">Inregistreaza-te</Link>
+      <Link className="option">Despre proiect</Link>
     </div>
   </div>
 );

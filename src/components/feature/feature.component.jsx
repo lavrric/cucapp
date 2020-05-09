@@ -1,5 +1,5 @@
 import React from "react";
-import "./feature.styles.scss";
+import "./feature.scss";
 
 import CustomButton from "../custom-button/custom-button.component";
 

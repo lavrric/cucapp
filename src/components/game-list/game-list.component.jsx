@@ -1,5 +1,5 @@
 import React from "react";
-import "./game-list.styles.scss";
+import "./game-list.scss";
 
 import GameItem from "../game-item/game-item.component";
 
