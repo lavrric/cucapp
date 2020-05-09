@@ -13,8 +13,8 @@ class App extends React {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/play" component={GamePage} />
-          <Route exact path="/select" component={GameList} />
+          {/* <Route exact path="/play" component={GamePage} /> */}
+          {/* <Route exact path="/select" component={GameList} /> */}
         </Switch>
       </BrowserRouter>
     );
