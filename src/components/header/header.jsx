@@ -8,10 +8,12 @@ const Header = () => (
       CuCapp
     </Link>
     <div className="options">
-      <Link to="/play" className="option">
+      <Link to="/select" className="option">
         Joaca Pachet
       </Link>
-      <Link className="option">Joaca Intrebari</Link>
+      <Link to="/play" className="option">
+        Joaca Intrebari
+      </Link>
       <Link className="option">Cauta Intrebari</Link>
       <Link className="option">Inregistreaza-te</Link>
       <Link className="option">Despre proiect</Link>

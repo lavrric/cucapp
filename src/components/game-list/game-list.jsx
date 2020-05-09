@@ -1,7 +1,7 @@
 import React from "react";
 import "./game-list.scss";
 
-import GameItem from "../game-item/game-item.component";
+import GameItem from "../game-item/game-item";
 
 let testList = [
   {
@@ -94,6 +94,7 @@ let testList = [
 
 const GameList = () => (
   <div className="game-list">
+    <div className="title">Pachete disponibile</div>
     <GameItem
       first
       key={0}

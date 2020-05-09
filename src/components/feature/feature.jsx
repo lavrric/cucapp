@@ -1,7 +1,7 @@
 import React from "react";
 import "./feature.scss";
 
-import CustomButton from "../custom-button/custom-button.component";
+import CustomButton from "../custom-button/custom-button";
 
 const Feature = () => (
   <div className="feature">

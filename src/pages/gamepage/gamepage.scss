@@ -1,0 +1,18 @@
+.gamepage {
+  display: flex;
+  justify-content: space-around;
+  height: calc(80vh - 70px);
+  align-items: center;
+  width: 1000px;
+
+  .card {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+
+    .title {
+      font-size: 24px;
+    }
+  }
+}
