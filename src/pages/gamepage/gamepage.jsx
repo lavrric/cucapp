@@ -1,14 +1,15 @@
 import React from "react";
 import "./gamepage.scss";
 import CustomButton from "../../components/custom-button/custom-button";
+import { ReactComponent as Timer } from "../../assets/timer.svg";
 
 const testQuestions = [
   {
     autor: "Alexandru Lebedev",
     intrebare:
-      "Zyzzyva este numele unei insecte descoperite în Brazilia în 1922. Numele i-a fost dat în glumă pentru a fi ținută minte, deoarece nu exista o denumire latină sau braziliană a acestei insecte. Mulți nu știu cum ea arată și această insectă nu are nici o trăsătură fizică ce ar scoate-o în evidență. Totuși, majoritatea lingviștilor o cunosc. Răspundeți peste un minut de ce anume?",
+      "Atenție, în întrebare au fost făcute înlocuiri. Conform unei versiuni, această tradiţie, care este actuală şi azi, a apărut în secolul XVII, când marinarii britanici obişnuiau după fiecare luptă să coboare X-ul lor pentru a lăsa loc X-ului invizibil al Alfei. Aceasta sublinia măreţia şi puterea Alfei, precum şi faptul că în faţa sa toţi sunt egali – atât cei care au câştigat lupta, cât şi cei înfrânţi. Nu vă întrebăm care este tradiţia. Scrieţi ce s-a înlocuit prin X şi Alfa.",
     raspuns:
-      "În majoritatea dicționarelor în engleză acest cuvânt este ultimul Sursă: https://en.wikipedia.org/wiki/Zyzzyva",
+      "X – steag (se acceptă drapel), Alfa – Moartea Comentariu: După fiecare luptă marinarii britanici dădeau steagul în jos, lăsând un spaţiu liber egal cu lăţimea steagului. Spaţiul liber se presupunea că e ocupat de steagul invizibil al Morţii, subliniind puterea nemărginită a acesteia şi egalitatea în faţa ei a tuturor oamenilor, atât câştigători, cât şi înfrânţi. Sursa:https://thequestion.ru/questions/123125/otkuda-poshla.. vremya-traura",
   },
   {
     autor: "Florea Victoria",
@@ -44,7 +45,7 @@ class GamePage extends React.Component {
   render() {
     return (
       <div className="gamepage">
-        <div className="question-card">
+        <div className="left">
           <div className="intrebare">
             <div className="title">Intrebare: </div>
             {testQuestions[this.state.question - 1].intrebare}
@@ -58,27 +59,22 @@ class GamePage extends React.Component {
           </div>
         </div>
 
-        <div className="answer-card">
-          <div className="top">
-            <div className="title">Raspunsul tau:</div>
-            <input
-              type="text"
-              onChange={this.handleChange}
-              value={this.state.answer}
-            ></input>
-          </div>
-
-          <div className="bottom">
-            <div className="info">
-              <div className="title">Scorul curent: 23/30</div>
-            </div>
-            <CustomButton handleClick={this.handleClick}>
-              Arata Raspunsul
-            </CustomButton>
-            <CustomButton handleClick={this.handleClick}>
-              Urmatoarea intrebare
-            </CustomButton>
-          </div>
+        <div className="right">
+          <Timer />
+          <div className="title">Scorul curent: 23/30</div>
+          <div className="title">Raspunsul tau:</div>
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.answer}
+          ></input>
+          <div className="info"></div>
+          <CustomButton handleClick={this.handleClick}>
+            Arata Raspunsul
+          </CustomButton>
+          <CustomButton handleClick={this.handleClick}>
+            Urmatoarea intrebare
+          </CustomButton>
         </div>
       </div>
     );
