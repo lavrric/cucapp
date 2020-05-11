@@ -51,27 +51,51 @@ class GamePage extends React.Component {
             {testQuestions[this.state.question - 1].intrebare}
           </div>
 
-          <div className="answer">
+          <div
+            className="answer"
+            style={{
+              visibility: this.state.showAnswer ? "visible" : "hidden",
+              position: "relative",
+            }}
+          >
+            <div className="title" style={{ visibility: "visible" }}>
+              Raspuns:{" "}
+            </div>
             <div
               style={{
-                visibility: this.state.showAnswer ? "visible" : "visible",
+                visibility: this.state.showAnswer ? "hidden" : "visible",
+                position: "absolute",
+                top: "50px",
+                left: "0px",
+                width: "100%",
+                height: "110%",
+                backgroundImage: `url(https://ok-forum.ro/oc-content/plugins/slider/images/5dcc171a909b5.jpg)`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "left",
+                fontSize: "42px",
+                textAlign: "center",
               }}
-            >
-              <div className="title">Raspuns: </div>
-              {testQuestions[this.state.question - 1].raspuns}
-            </div>
-            <div className="title">
-              Autor:{" "}
-              <span style={{ fontSize: "16px" }}>
-                {testQuestions[this.state.question - 1].autor}
-              </span>
-            </div>
+            />
+            {`${testQuestions[this.state.question - 1].raspuns}`}
+            <span style={{ fontWeight: "500" }}>{` (Autor: ${
+              testQuestions[this.state.question - 1].autor
+            })`}</span>
           </div>
         </div>
 
         <div className="interaction">
-          <input value={this.state.value} placeHolder="Raspunsul tau..." />
-          <div className="judge">
+          <div className="try">
+            <input value={this.state.value} placeHolder="Raspunsul tau..." />
+            <CustomButton onClick={this.handleClick}>
+              Vezi raspunsul
+            </CustomButton>
+          </div>
+          <div
+            className="judge"
+            style={{
+              visibility: this.state.showAnswer ? "visible" : "hidden",
+            }}
+          >
             <div className="title">Consideri ca rapsunsul tau este:</div>
             <CustomButton style={{ fontSize: "12px" }}>Corect</CustomButton>
             <CustomButton style={{ fontSize: "12px" }}>Gresit</CustomButton>

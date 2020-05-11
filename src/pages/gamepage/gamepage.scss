@@ -36,14 +36,20 @@ $main-color: black;
     justify-content: space-between;
     align-items: center;
 
+    .try {
+      width: 48%;
+      display: flex;
+    }
+
     input {
       background: none;
       background-color: white;
       color: $sub-color;
+      flex-grow: 1;
+      margin-right: 20px;
       font-size: 18px;
-      padding: 10px 10px 10px 5px;
+      padding: 10px 10px 0px 5px;
       display: block;
-      width: 47%;
       border: none;
       border-radius: 0;
       border-bottom: 1px solid $sub-color;
