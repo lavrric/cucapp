@@ -4,9 +4,14 @@ import "./App.css";
 import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
-import GameList from "./components/game-list/game-list";
+import SelectPage from "./pages/selectpage/selectpage";
 
 class App extends React.Component {
+  componentDidMount(){
+    this.setState({ sezoane: ['2017T','2018P','2018T','2019P','2019T'] });
+    
+  }
+  
   render() {
     return (
       <BrowserRouter>
@@ -14,7 +19,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/play" component={GamePage} />
-          <Route exact path="/select" component={GameList} />
+          <Route exact path="/select" component={SelectPage} />
         </Switch>
       </BrowserRouter>
     );

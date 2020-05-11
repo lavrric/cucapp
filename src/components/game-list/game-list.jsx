@@ -92,29 +92,34 @@ let testList = [
   },
 ];
 
-const GameList = () => (
-  <div className="game-list">
-    <div className="title">Pachete disponibile</div>
-    <GameItem
-      first
-      key={0}
-      competitia="Competitia"
-      etapa="Etapa"
-      desprePachet="Despre pachet"
-      autori={["Autori"]}
-      intrebari="Numarul de intrebari"
-    />
-    <div className="game-list-items">
-      {testList.map(({ nivel, intrebari, ...otherProps }, i) => (
+class GameList extends React.Component{
+  render(){
+    return (
+    <>
+      <input type="text" placeholder="Cauta dupa sezon/etapa/autori/nivel" />
+      <div className="game-list">
         <GameItem
-          key={i + 1}
-          grey={(i + 1) % 2}
-          desprePachet={`Nivel ${nivel.toLowerCase()}, ${intrebari} intrebari`}
-          {...otherProps}
+          first
+          key={0}
+          competitia="Competitia"
+          etapa="Etapa"
+          nr_intrebari="Intrebari disponibile"
+          autori={["Autori"]}
         />
-      ))}
-    </div>
-  </div>
-);
+        <div className="game-list-items">
+          {testList.map(({ nivel, nr_intrebari, ...otherProps }, i) => (
+            <GameItem
+              key={i + 1}
+              grey={(i + 1) % 2}
+              nr_intrebari={nr_intrebari}
+              {...otherProps}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+    )
+  }
+}
 
 export default GameList;
