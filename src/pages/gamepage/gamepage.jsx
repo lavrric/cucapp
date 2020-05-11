@@ -45,36 +45,28 @@ class GamePage extends React.Component {
   render() {
     return (
       <div className="gamepage">
-        <div className="left">
-          <div className="intrebare">
+        <div className="text">
+          <div className="question">
             <div className="title">Intrebare: </div>
             {testQuestions[this.state.question - 1].intrebare}
           </div>
           <div
-            style={{ visibility: this.state.showAnswer ? "visible" : "hidden" }}
-            className="raspuns"
+            style={{
+              visibility: this.state.showAnswer ? "visible" : "visible",
+            }}
+            className="answer"
           >
             <div className="title">Raspuns: </div>
             {testQuestions[this.state.question - 1].raspuns}
           </div>
         </div>
-
-        <div className="right">
-          <Timer />
-          <div className="title">Scorul curent: 23/30</div>
-          <div className="title">Raspunsul tau:</div>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.answer}
-          ></input>
-          <div className="info"></div>
-          <CustomButton handleClick={this.handleClick}>
-            Arata Raspunsul
-          </CustomButton>
-          <CustomButton handleClick={this.handleClick}>
-            Urmatoarea intrebare
-          </CustomButton>
+        <div className="interaction">
+          <input value={this.state.value} placeHolder="Raspunsul tau..." />
+          <div className="judge">
+            <div className="title">Consideri ca rapsunsul tau este:</div>
+            <CustomButton style={{ fontSize: "12px" }}>Corect</CustomButton>
+            <CustomButton>Gresit</CustomButton>
+          </div>
         </div>
       </div>
     );
