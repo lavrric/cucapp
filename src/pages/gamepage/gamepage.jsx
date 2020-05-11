@@ -50,24 +50,34 @@ class GamePage extends React.Component {
             <div className="title">Intrebare: </div>
             {testQuestions[this.state.question - 1].intrebare}
           </div>
-          <div
-            style={{
-              visibility: this.state.showAnswer ? "visible" : "visible",
-            }}
-            className="answer"
-          >
-            <div className="title">Raspuns: </div>
-            {testQuestions[this.state.question - 1].raspuns}
+
+          <div className="answer">
+            <div
+              style={{
+                visibility: this.state.showAnswer ? "visible" : "visible",
+              }}
+            >
+              <div className="title">Raspuns: </div>
+              {testQuestions[this.state.question - 1].raspuns}
+            </div>
+            <div className="title">
+              Autor:{" "}
+              <span style={{ fontSize: "16px" }}>
+                {testQuestions[this.state.question - 1].autor}
+              </span>
+            </div>
           </div>
         </div>
+
         <div className="interaction">
           <input value={this.state.value} placeHolder="Raspunsul tau..." />
           <div className="judge">
             <div className="title">Consideri ca rapsunsul tau este:</div>
             <CustomButton style={{ fontSize: "12px" }}>Corect</CustomButton>
-            <CustomButton>Gresit</CustomButton>
+            <CustomButton style={{ fontSize: "12px" }}>Gresit</CustomButton>
           </div>
         </div>
+        <CustomButton>Urmatoarea Intrebare</CustomButton>
       </div>
     );
   }
