@@ -26,11 +26,22 @@ class App extends React.Component {
             etapa: ((doc.id === 'Maraton') ? 'Et7' : doc.id),
             nivel: data.nivel,
             autori: data.autori,
-            nr_intrebari: data.arr.length
+            nr_intrebari: data.arr.length,
+            date: data.date
           }
         }));
       }
-      
+      pachete = pachete.sort((a, b) => {
+        let arr1 = a.date.split('.');
+        let arr2 = b.date.split('.');
+        let val1 = (arr1[2] + 2000) * 360;
+        val1 += arr1[1] * 30;
+        val1 += arr1[0];
+        val1 -= (arr2[2] + 2000) * 360;
+        val1 -= arr2[1] * 30;
+        val1 -= arr2[0];
+        return -val1;
+      })
       this.setState({ pachete });
     }
     getPachete();
