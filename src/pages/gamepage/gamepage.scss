@@ -3,11 +3,7 @@ $main-color: black;
 
 .gamepage {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   height: calc(90vh - 70px);
-  align-items: center;
   font-size: 18px;
   text-align: justify;
 
@@ -21,10 +17,24 @@ $main-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 50%;
 
     .question,
     .answer {
+      height: 100%;
       width: 48%;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
     }
   }
 
@@ -33,12 +43,14 @@ $main-color: black;
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
     .try {
       width: 48%;
       display: flex;
+      align-items: center;
     }
 
     input {
@@ -48,7 +60,7 @@ $main-color: black;
       flex-grow: 1;
       margin-right: 20px;
       font-size: 18px;
-      padding: 10px 10px 0px 5px;
+      padding: 10px 10px 10px 5px;
       display: block;
       border: none;
       border-radius: 0;

@@ -1,22 +1,22 @@
 $sub-color: grey;
 
 input {
-      background: none;
-      background-color: white;
-      color: $sub-color;
-      font-size: 18px;
-      padding: 10px 10px 10px 5px;
-      margin: 30px auto;
-      display: block;
-      width: 47%;
-      border: none;
-      border-radius: 0;
-      border-bottom: 1px solid $sub-color;
+  background: none;
+  background-color: white;
+  color: $sub-color;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  margin: 30px auto;
+  display: block;
+  width: 47%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $sub-color;
 
-      &:focus {
-        outline: none;
-      }
-    }
+  &:focus {
+    outline: none;
+  }
+}
 
 .game-list {
   width: 100%;

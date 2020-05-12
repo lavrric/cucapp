@@ -65,13 +65,14 @@ class GamePage extends React.Component {
               style={{
                 visibility: this.state.showAnswer ? "hidden" : "visible",
                 position: "absolute",
-                top: "50px",
+                top: "0px",
                 left: "0px",
                 width: "100%",
-                height: "110%",
+                height: "100%",
                 backgroundImage: `url(https://ok-forum.ro/oc-content/plugins/slider/images/5dcc171a909b5.jpg)`,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "left",
+                backgroundSize: "cover",
+                backgroundPositionY: "50px",
                 fontSize: "42px",
                 textAlign: "center",
               }}
@@ -100,8 +101,10 @@ class GamePage extends React.Component {
             <CustomButton style={{ fontSize: "12px" }}>Corect</CustomButton>
             <CustomButton style={{ fontSize: "12px" }}>Gresit</CustomButton>
           </div>
+          <CustomButton style={{ margin: "0 0 0 auto" }}>
+            Urmatoarea Intrebare
+          </CustomButton>
         </div>
-        <CustomButton>Urmatoarea Intrebare</CustomButton>
       </div>
     );
   }
