@@ -19,7 +19,6 @@ export default class SelectPage extends Component {
         return (
             <div>
                 <GameList pachete={this.props.pachete} searchText={this.state.searchText} searchChange={this.searchChange}/> 
-                <FiredButton />
             </div>
         )
     }

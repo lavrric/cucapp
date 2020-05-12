@@ -3,6 +3,8 @@ import "./game-list.scss";
 import normalize from '../../functions/normalize'
 
 import GameItem from "../game-item/game-item";
+import UnfiredButton from "../../pages/selectpage/unfired-button";
+import FiredButton from "../../pages/selectpage/fired-button";
 
 class GameList extends React.Component{
   constructor(props){
@@ -53,6 +55,12 @@ class GameList extends React.Component{
           ))}
         </div>
       </div>
+      {
+        (this.state.selected.sezonul === '' ? 
+          <UnfiredButton>JOACA</UnfiredButton>
+          : <FiredButton>JOACA</FiredButton>  
+        )
+      }
     </>
     )
   }
