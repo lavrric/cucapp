@@ -7,11 +7,6 @@ import GamePage from "./pages/gamepage/gamepage";
 import SelectPage from "./pages/selectpage/selectpage";
 
 class App extends React.Component {
-  componentDidMount(){
-    this.setState({ sezoane: ['2017T','2018P','2018T','2019P','2019T'] });
-    
-  }
-  
   render() {
     return (
       <BrowserRouter>
