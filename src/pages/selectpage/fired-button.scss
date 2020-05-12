@@ -1,28 +1,24 @@
+$base-color: #7952b3;
+$sub-color: #ffe484;
+
 .fired-button {
   //min-width: 50px;
   height: auto;
   max-width: 300px;
   height: 50px;
   width: 150px;
-  float: right;
   margin: 15px 0px;
   //height: 50px;
 
   letter-spacing: 0.5px;
   padding: 0px 25px 0px 25px;
   font-size: 15px;
-  background-color: rgb(0, 255, 136);
-  color: black;
+  background-color: $base-color;
+  color: white;
   text-transform: uppercase;
   //font-family: "Open Sans Condensed";
   //font-weight: bolder;
   border: none;
   border: 1px solid rgb(105, 105, 105);
   cursor: pointer;
-
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-  }
 }

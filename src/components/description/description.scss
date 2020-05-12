@@ -1,3 +1,6 @@
+$base-color: #7952b3;
+$sub-color: #ffe484;
+
 .description {
   display: flex;
   flex-direction: column;
@@ -11,7 +14,7 @@
   .bar {
     width: 69px;
     margin: 20px;
-    border-bottom: 1px solid rgb(185, 63, 63);
+    border-bottom: 1px solid $sub-color;
   }
 
   .text {

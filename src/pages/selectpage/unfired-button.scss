@@ -1,18 +1,20 @@
+$base-color: #7952b3;
+$sub-color: #ffe484;
+
 .unfired-button {
   //min-width: 50px;
   height: auto;
   max-width: 300px;
   height: 50px;
   width: 150px;
-  float: right;
   margin: 15px 0px;
   //height: 50px;
 
   letter-spacing: 0.5px;
   padding: 0px 25px 0px 25px;
   font-size: 15px;
-  background-color: rgb(193, 255, 226);
-  color: #777;
+  background-color: rgba($base-color, 0.85);
+  color: #eee;
   text-transform: uppercase;
   //font-family: "Open Sans Condensed";
   //font-weight: bolder;

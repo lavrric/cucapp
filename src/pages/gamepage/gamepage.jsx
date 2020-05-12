@@ -1,7 +1,6 @@
 import React from "react";
 import "./gamepage.scss";
 import CustomButton from "../../components/custom-button/custom-button";
-import { ReactComponent as Timer } from "../../assets/timer.svg";
 
 const testQuestions = [
   {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";

@@ -1,4 +1,5 @@
-$sub-color: grey;
+$base-color: #392396;
+$secs-color: #ffd803;
 
 .game-list {
   width: 100%;
@@ -6,12 +7,12 @@ $sub-color: grey;
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 
   input {
     background: none;
     background-color: white;
-    color: $sub-color;
+    color: grey;
     font-size: 18px;
     padding: 10px 10px 10px 15px;
     margin: 0px 0px 20px auto;
@@ -19,7 +20,7 @@ $sub-color: grey;
     width: 400px;
     border: none;
     border-radius: 20px;
-    border: 1px solid $sub-color;
+    border: 1px solid grey;
 
     &:focus {
       outline: none;
