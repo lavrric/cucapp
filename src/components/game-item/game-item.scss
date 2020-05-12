@@ -5,19 +5,18 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  padding: 15px;
+  //padding: 15px;
 
   &.first {
-    padding-right: 20px;
-    border-top: 2px solid #4c7899;
-    border-bottom: 1px solid #4c7899;
+    padding-right: 0px;
+    border-top: 1px solid #777;
   }
 
   &:hover {
     box-shadow: inset 0px 0px 5px 0px #4c7899;
   }
 
-  &.selected{
+  &.selected {
     box-shadow: inset 0px 0px 5px 0px #0026ff;
   }
 
@@ -25,8 +24,31 @@
     background-color: #eeeeee;
   }
   .game-item-characteristic {
-    width: 18%;
-    display: flex;
-    justify-content: center;
+    width: 60px;
+    height: 100%;
+    border-bottom: 1px solid #777;
+    border-left: 1px solid #777;
+    // margin-top: -1px;
+    // margin-left: -1px;
+    text-align: center;
+    padding: 13px 10px;
+    vertical-align: middle;
+    &.autori {
+      flex-grow: 6;
+    }
+    &.sezonul {
+      flex-grow: 3;
+    }
+    &.etapa,
+    &.nivel,
+    &.nr_intrebari {
+      flex-grow: 2;
+    }
+    &.id {
+      flex-grow: 0;
+    }
+    &.nr_intrebari {
+      border-right: 1px solid #777;
+    }
   }
 }

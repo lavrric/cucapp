@@ -1,28 +1,30 @@
 $sub-color: grey;
 
-input {
-  background: none;
-  background-color: white;
-  color: $sub-color;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  margin: 30px auto;
-  display: block;
-  width: 47%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid $sub-color;
-
-  &:focus {
-    outline: none;
-  }
-}
-
 .game-list {
   width: 100%;
+  height: calc(90vh - 70px);
   background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+
+  input {
+    background: none;
+    background-color: white;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 15px;
+    margin: 0px 0px 20px auto;
+    display: block;
+    width: 400px;
+    border: none;
+    border-radius: 20px;
+    border: 1px solid $sub-color;
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   .title {
     font-size: 24px;
@@ -31,10 +33,12 @@ input {
 
   .game-list-items {
     max-height: 60vh;
-    overflow-y: scroll;
+    overflow-y: overlay;
+    //border-top: 1px solid #777;
 
     &::-webkit-scrollbar {
       width: 5px;
+      position: absolute;
     }
     &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -43,5 +47,10 @@ input {
       background-color: darkgrey;
       outline: 1px solid slategrey;
     }
+  }
+
+  .fired-button,
+  .unfired-button {
+    margin: 20px 0px 0 auto;
   }
 }
