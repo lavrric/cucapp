@@ -17,6 +17,10 @@
     box-shadow: inset 0px 0px 5px 0px #4c7899;
   }
 
+  &.selected{
+    box-shadow: inset 0px 0px 5px 0px #0026ff;
+  }
+
   &.grey {
     background-color: #eeeeee;
   }

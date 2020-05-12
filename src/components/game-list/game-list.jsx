@@ -5,6 +5,16 @@ import normalize from '../../functions/normalize'
 import GameItem from "../game-item/game-item";
 
 class GameList extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = { selected: {sezonul: '', etapa: ''} };
+  }
+  
+  handleSelect = (obj) => {
+    console.log(obj);
+    this.setState({selected: obj});
+  }
+
   render(){
     const searchText = normalize(this.props.searchText);
     return (
@@ -18,6 +28,7 @@ class GameList extends React.Component{
           etapa="Etapa"
           nr_intrebari="Intrebari disponibile"
           autori={["Autori"]}
+          selected={this.state.selected}
         />
         <div className="game-list-items">
           {this.props.pachete.map(({ nivel, nr_intrebari, ...otherProps }, i) => (         
@@ -26,6 +37,8 @@ class GameList extends React.Component{
                 normalize(otherProps.autori.toString()).includes(searchText)
               ) ?
               <GameItem
+                handleSelect={this.handleSelect}
+                selected={this.state.selected}
                 key={i + 1}
                 grey={(i + 1) % 2}
                 nr_intrebari={nr_intrebari}

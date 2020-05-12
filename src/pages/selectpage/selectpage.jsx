@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { firestore } from '../../firebase/firebase.utils'
 import GameList from '../../components/game-list/game-list'
+import UnfiredButton from './unfired-button'
+import FiredButton from './fired-button'
 
 export default class SelectPage extends Component {    
     constructor(props){
@@ -17,6 +19,7 @@ export default class SelectPage extends Component {
         return (
             <div>
                 <GameList pachete={this.props.pachete} searchText={this.state.searchText} searchChange={this.searchChange}/> 
+                <FiredButton />
             </div>
         )
     }
