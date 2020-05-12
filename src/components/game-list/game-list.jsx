@@ -11,8 +11,11 @@ class GameList extends React.Component{
   }
   
   handleSelect = (obj) => {
-    console.log(obj);
-    this.setState({selected: obj});
+    let now = this.state.selected;
+    if(now.sezonul === obj.sezonul && now.etapa === obj.etapa){
+      this.setState({ selected: { sezonul: '', etapa: '' } });
+    }
+    else this.setState({selected: obj});
   }
 
   render(){
@@ -29,6 +32,7 @@ class GameList extends React.Component{
           nr_intrebari="Intrebari disponibile"
           autori={["Autori"]}
           selected={this.state.selected}
+          handleSelect={()=>null}
         />
         <div className="game-list-items">
           {this.props.pachete.map(({ nivel, nr_intrebari, ...otherProps }, i) => (         
