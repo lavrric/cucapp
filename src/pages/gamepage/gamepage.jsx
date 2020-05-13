@@ -93,16 +93,8 @@ class GamePage extends React.Component {
             }}
           >
             <div className="title">Consideri ca rapsunsul tau este corect?</div>
-            <CustomButton style={{ width: "calc(50% - 200px)" }}>
-              Da
-            </CustomButton>
-            <CustomButton
-              style={{
-                width: "calc(50% - 200px)",
-              }}
-            >
-              Nu
-            </CustomButton>
+            <CustomButton>Da</CustomButton>
+            <CustomButton>Nu</CustomButton>
           </div>
           <CustomButton
             important

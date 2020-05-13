@@ -78,6 +78,10 @@ $sub-button-color: #6c757d;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      .custom-button {
+        flex-grow: 1;
+        margin: 0 10px;
+      }
     }
     .title {
       padding: 0;
