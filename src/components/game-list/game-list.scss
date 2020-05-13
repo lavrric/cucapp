@@ -4,14 +4,12 @@ $secs-color: #ffd803;
 .game-list {
   width: 100%;
   height: calc(90vh - 70px);
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   input {
     background: none;
-    background-color: white;
     color: grey;
     font-size: 18px;
     padding: 10px 10px 10px 15px;

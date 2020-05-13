@@ -12,6 +12,7 @@ const GameItem = ({
   handleSelect,
   id,
   nivel,
+  id_tabel
 }) => {
   let color = "";
   switch (nivel) {
@@ -30,13 +31,13 @@ const GameItem = ({
   return (
     <div
       className={`${grey ? "grey" : ""} ${first ? "first" : ""} ${
-        selected.sezonul === sezonul && selected.etapa === etapa
+        selected === id
           ? "selected"
           : ""
       } game-item`}
-      onClick={(e) => handleSelect({ sezonul, etapa })}
+      onClick={(e) => handleSelect(id)}
     >
-      <div className="game-item-characteristic id">{id}</div>
+      <div className="game-item-characteristic id">{id_tabel}</div>
       <div className="game-item-characteristic sezonul">{sezonul}</div>
       <div className="game-item-characteristic etapa">{etapa}</div>
       <div className="game-item-characteristic autori">{autori.join(", ")}</div>

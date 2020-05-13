@@ -9,14 +9,13 @@ import FiredButton from "../../pages/selectpage/fired-button";
 class GameList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selected: { sezonul: "", etapa: "" } };
+    this.state = { selected: 4206942 };
   }
 
-  handleSelect = (obj) => {
-    let now = this.state.selected;
-    if (now.sezonul === obj.sezonul && now.etapa === obj.etapa) {
-      this.setState({ selected: { sezonul: "", etapa: "" } });
-    } else this.setState({ selected: obj });
+  handleSelect = (id) => {
+    if (this.state.selected === id) {
+      this.setState({ selected: 4206942 });
+    } else this.setState({ selected: id });
   };
 
   render() {
@@ -32,7 +31,8 @@ class GameList extends React.Component {
         <GameItem
           first
           key={0}
-          id="#"
+          id_tabel="#"
+          id={42069}
           sezonul="Sezonul"
           etapa="Etapa"
           nr_intrebari="Intrebari disponibile"
@@ -42,18 +42,16 @@ class GameList extends React.Component {
           handleSelect={() => null}
         />
         <div className="game-list-items">
-          {this.props.pachete.map(({ nivel, nr_intrebari, ...otherProps }, i) =>
+          {this.props.pachete.map(({ ...otherProps }, i) =>
             normalize(otherProps.sezonul).includes(searchText) ||
             normalize(otherProps.etapa).includes(searchText) ||
             normalize(otherProps.autori.toString()).includes(searchText) ? (
               <GameItem
-                id={`${i + 1}`}
                 handleSelect={this.handleSelect}
                 selected={this.state.selected}
                 key={i + 1}
+                id_tabel={i + 1}
                 grey={(i + 1) % 2}
-                nr_intrebari={nr_intrebari}
-                nivel={nivel}
                 {...otherProps}
               />
             ) : (

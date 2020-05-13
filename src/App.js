@@ -23,6 +23,7 @@ class App extends React.Component {
     ];
     const getPachete = async (sezon) => {
       let pachete = [];
+      let k = 0;
       for (const sezon of sezoane) {
         const snapshot = await firestore.collection(sezon).get();
         pachete.push(
@@ -35,6 +36,7 @@ class App extends React.Component {
               autori: data.autori,
               nr_intrebari: data.arr.length,
               date: data.date,
+              id: ++k
             };
           })
         );
