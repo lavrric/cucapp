@@ -27,6 +27,7 @@ $sub-button-color: #6c757d;
       height: 100%;
       width: 48%;
       overflow-y: auto;
+      overflow-x: hidden;
 
       &::-webkit-scrollbar {
         width: 5px;
