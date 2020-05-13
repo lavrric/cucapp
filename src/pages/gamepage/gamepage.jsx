@@ -96,7 +96,11 @@ class GamePage extends React.Component {
             <CustomButton style={{ width: "calc(50% - 200px)" }}>
               Da
             </CustomButton>
-            <CustomButton style={{ width: "calc(50% - 200px)" }}>
+            <CustomButton
+              style={{
+                width: "calc(50% - 200px)",
+              }}
+            >
               Nu
             </CustomButton>
           </div>

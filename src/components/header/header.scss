@@ -5,21 +5,20 @@ $button-color: #007bff;
 .header {
   display: flex;
   justify-content: space-between;
-  //margin-left: -60px;
-  //margin-right: -60px;
-  //padding: 0px 60px;
   margin-bottom: 20px;
-  //background-color: #7952b3;
+  margin-left: -60px;
+  margin-right: -60px;
+  padding: 20px 60px;
+  background-color: $base-color;
   height: 70px;
   border-bottom: 1px solid $base-color;
 
   .title {
-    // color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 1);
     font-size: 32px;
     display: flex;
     align-items: center;
     text-align: center;
-    padding-left: 15px;
   }
 
   .options {
@@ -30,8 +29,11 @@ $button-color: #007bff;
     justify-content: flex-end;
 
     .option {
-      //color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.85);
       padding: 10px 15px;
+      &:hover {
+        color: white;
+      }
     }
   }
 }
