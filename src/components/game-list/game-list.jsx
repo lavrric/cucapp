@@ -59,7 +59,7 @@ class GameList extends React.Component {
             )
           )}
         </div>
-        {this.state.selected.sezonul === "" ? (
+        {this.state.selected === 4206942 ? (
           <UnfiredButton>JOACA</UnfiredButton>
         ) : (
           <FiredButton>JOACA</FiredButton>
