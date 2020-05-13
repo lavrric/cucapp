@@ -8,7 +8,7 @@ const testQuestions = [
     intrebare:
       "Atenție, în întrebare au fost făcute înlocuiri. Conform unei versiuni, această tradiţie, care este actuală şi azi, a apărut în secolul XVII, când marinarii britanici obişnuiau după fiecare luptă să coboare X-ul lor pentru a lăsa loc X-ului invizibil al Alfei. Aceasta sublinia măreţia şi puterea Alfei, precum şi faptul că în faţa sa toţi sunt egali – atât cei care au câştigat lupta, cât şi cei înfrânţi. Nu vă întrebăm care este tradiţia. Scrieţi ce s-a înlocuit prin X şi Alfa.",
     raspuns:
-      "X – steag (se acceptă drapel), Alfa – Moartea Comentariu: După fiecare luptă marinarii britanici dădeau steagul în jos, lăsând un spaţiu liber egal cu lăţimea steagului. Spaţiul liber se presupunea că e ocupat de steagul invizibil al Morţii, subliniind puterea nemărginită a acesteia şi egalitatea în faţa ei a tuturor oamenilor, atât câştigători, cât şi înfrânţi. Sursa:https://thequestion.ru/questions/123125/otkuda-poshla.. vremya-traura",
+      "X – steag (se acceptă drapel), Alfa – Moartea Comentariu: După fiecare luptă marinarii britanici dădeau steagul în jos, lăsând un spaţiu liber egal cu lăţimea steagului. Spaţiul liber se presupunea că e ocupat de steagul invizibil al Morţii, subliniind puterea nemărginită a acesteia şi egalitatea în faţa ei a tuturor oamenilor, atât câştigători, cât şi înfrânţi. Sursa: https://thequestion.ru/questions/123125/otkuda-poshla.. vremya-traura",
   },
   {
     autor: "Florea Victoria",
@@ -46,7 +46,7 @@ class GamePage extends React.Component {
       <div className="gamepage">
         <div className="text">
           <div className="question">
-            <div className="title">Intrebare: </div>
+            <div className="title">Intrebare:</div>
             {testQuestions[this.state.question - 1].intrebare}
           </div>
 
@@ -58,7 +58,7 @@ class GamePage extends React.Component {
             }}
           >
             <div className="title" style={{ visibility: "visible" }}>
-              Raspuns:{" "}
+              Raspuns:
             </div>
             <div
               style={{
@@ -69,11 +69,7 @@ class GamePage extends React.Component {
                 width: "100%",
                 height: "100%",
                 backgroundImage: `url(https://ok-forum.ro/oc-content/plugins/slider/images/5dcc171a909b5.jpg)`,
-                backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                backgroundPositionY: "50px",
-                fontSize: "42px",
-                textAlign: "center",
               }}
             />
             {`${testQuestions[this.state.question - 1].raspuns}`}
@@ -96,11 +92,18 @@ class GamePage extends React.Component {
               visibility: this.state.showAnswer ? "visible" : "hidden",
             }}
           >
-            <div className="title">Consideri ca rapsunsul tau este:</div>
-            <CustomButton style={{ fontSize: "12px" }}>Corect</CustomButton>
-            <CustomButton style={{ fontSize: "12px" }}>Gresit</CustomButton>
+            <div className="title">Consideri ca rapsunsul tau este corect?</div>
+            <CustomButton style={{ width: "calc(50% - 200px)" }}>
+              Da
+            </CustomButton>
+            <CustomButton style={{ width: "calc(50% - 200px)" }}>
+              Nu
+            </CustomButton>
           </div>
-          <CustomButton style={{ margin: "0 0 0 auto" }}>
+          <CustomButton
+            important
+            style={{ margin: "50px auto", width: "calc(100% - 400px)" }}
+          >
             Urmatoarea Intrebare
           </CustomButton>
         </div>

@@ -1,11 +1,14 @@
-$sub-color: grey;
-$main-color: black;
+$base-color: #7952b3;
+$sub-color: #ffe484;
+$button-color: #007bff;
+$sub-button-color: #6c757d;
 
 .gamepage {
   position: relative;
   height: calc(90vh - 70px);
   font-size: 18px;
   text-align: justify;
+  line-height: 1.3;
 
   .title {
     font-size: 24px;
@@ -17,7 +20,7 @@ $main-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 50%;
+    height: 54%;
 
     .question,
     .answer {
@@ -56,7 +59,7 @@ $main-color: black;
     input {
       background: none;
       background-color: white;
-      color: $sub-color;
+      color: $sub-button-color;
       flex-grow: 1;
       margin-right: 20px;
       font-size: 18px;
@@ -64,7 +67,7 @@ $main-color: black;
       display: block;
       border: none;
       border-radius: 0;
-      border-bottom: 1px solid $sub-color;
+      border-bottom: 1px solid $sub-button-color;
 
       &:focus {
         outline: none;
