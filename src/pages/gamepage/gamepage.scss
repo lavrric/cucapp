@@ -40,6 +40,21 @@ $sub-button-color: #6c757d;
         outline: 1px solid slategrey;
       }
     }
+
+    .answer {
+      padding-top: -20px;
+      margin-top: 20px;
+      .background {
+        position: absolute;
+        bottom: -20px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% + 40px);
+        background-image: url(https://scontent-otp1-1.xx.fbcdn.net/v/t1.15752-9/96805669_2694757550634092_958119500505415680_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=s4S64bMzipcAX8KvKeo&_nc_ht=scontent-otp1-1.xx&oh=90eea6b0a893a8aea3d836a65092758e&oe=5EE254FE);
+        background-size: contain;
+        background-position: center;
+      }
+    }
   }
 
   .interaction {

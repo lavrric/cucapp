@@ -57,19 +57,11 @@ class GamePage extends React.Component {
               position: "relative",
             }}
           >
-            <div className="title" style={{ visibility: "visible" }}>
-              Raspuns:
-            </div>
+            <div className="title">Raspuns:</div>
             <div
+              className="background"
               style={{
                 visibility: this.state.showAnswer ? "hidden" : "visible",
-                position: "absolute",
-                top: "0px",
-                left: "0px",
-                width: "100%",
-                height: "100%",
-                backgroundImage: `url(https://ok-forum.ro/oc-content/plugins/slider/images/5dcc171a909b5.jpg)`,
-                backgroundSize: "cover",
               }}
             />
             {`${testQuestions[this.state.question - 1].raspuns}`}
