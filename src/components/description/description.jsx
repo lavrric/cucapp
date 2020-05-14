@@ -6,11 +6,12 @@ const Description = () => (
     <div className="title">CuCapp</div>
     {/* <divc className="bar" /> */}
     <div className="text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus facilisis
-      posuere purus, ac placerat metus efficitur a. Aenean aliquam, purus sit
-      amet sagittis sodales, justo enim semper lectus, eget consequat nibh sem
-      ac ipsum. Phasellus faucibus nibh est, tristique tristique nibh venenatis
-      ac. Quisque ultricies auctor tortor sit amet sollicitudin.
+      Ce este jocul Ce Unde Când? Simplu - un joc intelectual pentru tine și
+      prietenii tăi. Întrebări provocatoare, răspunsuri și mai și! Indiferent
+      dacă ești un veteran al jocului sau de-abia începi să-i descoperi
+      frumusețea, CuCapp te invită să joci online diferite pachete și întrebări
+      chiar și de la tine de acasă. Demonstrează-ți că ești Cu Cap, Joacă
+      CuCapp!
     </div>
   </div>
 );

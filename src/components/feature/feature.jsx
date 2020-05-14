@@ -3,16 +3,11 @@ import "./feature.scss";
 
 import CustomButton from "../custom-button/custom-button";
 
-const Feature = () => (
+const Feature = ({ title, text }) => (
   <div className="feature">
-    <div className="title">Title</div>
-    <div className="text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus facilisis
-      posuere purus, ac placerat metus efficitur a. Aenean aliquam, purus sit
-      amet sagittis sodales, justo enim semper lectus, eget consequat nibh sem
-      ac ipsum.
-    </div>
-    <CustomButton>Joacă</CustomButton>
+    <div className="title">{title ? title : null}</div>
+    <div className="text">{text ? text : null}</div>
+    <CustomButton>{title}</CustomButton>
   </div>
 );
 
