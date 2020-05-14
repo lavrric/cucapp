@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import CustomButton from "..//custom-button/custom-button";
 import { firestore } from "../../firebase/firebase.utils";
 import Timer from "../../components/timer/timer";
+import { ReactComponent as Owl } from "../../assets/owl1.svg";
 
 class Play extends React.Component {
     constructor(props) {
