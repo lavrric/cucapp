@@ -41,7 +41,7 @@ class Timer extends React.Component {
     return (
       <div className="timer">
         <div className="title">
-          Timp Rămas: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </div>
       </div>
     );

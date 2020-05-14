@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import CustomButton from "..//custom-button/custom-button";
 import { firestore } from "../../firebase/firebase.utils";
 import Timer from "../../components/timer/timer";
+import { ReactComponent as Owl } from "../../assets/owl1.svg";
 
 class Play extends React.Component {
   constructor(props) {
@@ -78,7 +79,11 @@ class Play extends React.Component {
         <div className="text">
           <div className="question">
             <div className="title">
-              Întrebarea {`${this.state.nr_intrebare}`}:
+              Întrebarea {`${this.state.nr_intrebare}`}
+              {` (scor curent: ${this.state.raspunsuri.reduce(
+                (prev, cur) => prev + (cur ? 1 : 0),
+                0
+              )}/${this.state.nr_intrebare}):`}
               <Timer
                 time={
                   60 +
@@ -103,7 +108,7 @@ class Play extends React.Component {
             }}
           >
             <div className="title">Răspuns:</div>
-            <div
+            <Owl
               className="background"
               style={{
                 visibility: this.state.showAnswer ? "hidden" : "visible",
