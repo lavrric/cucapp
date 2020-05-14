@@ -90,13 +90,7 @@ class Play extends React.Component {
                 }
               />
             </div>
-            {this.state.intrebari[
-              this.state.nr_intrebare - 1
-            ].intrebare.substring(
-              11,
-              this.state.intrebari[this.state.nr_intrebare - 1].intrebare
-                .length + 1
-            )}
+            {this.state.intrebari[this.state.nr_intrebare - 1].intrebare}
           </div>
 
           <div
