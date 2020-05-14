@@ -36,7 +36,7 @@ class GameList extends React.Component {
       <div className="game-list">
         <input
           type="text"
-          placeholder="Caută dupa sezon, etapă, autori.."
+          placeholder="Caută după sezon, etapă, autori.."
           value={this.props.searchText}
           onChange={(e) => this.props.searchChange(e)}
         />

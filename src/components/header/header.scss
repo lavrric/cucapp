@@ -14,11 +14,18 @@ $button-color: #007bff;
   border-bottom: 1px solid $base-color;
 
   .title {
+    position: relative;
     color: rgba(255, 255, 255, 1);
     font-size: 32px;
     display: flex;
     align-items: center;
     text-align: center;
+    .beta {
+      font-size: 18px;
+      position: absolute;
+      top: -4px;
+      right: -30px;
+    }
   }
 
   .options {
