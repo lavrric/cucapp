@@ -1,0 +1,44 @@
+.endpage {
+  width: 100%;
+
+  .intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .title {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+  }
+  .review {
+    width: 100%;
+    margin: 10px 0px;
+    .review-item {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .option {
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        width: 70px;
+        padding: 15px;
+        text-align: justify;
+
+        &.intrebare,
+        &.raspuns {
+          flex-grow: 3;
+        }
+        &.raspuns_user {
+          flex-grow: 1;
+        }
+        &.corect {
+          border-right: 1px solid black;
+        }
+      }
+    }
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+  }
+}
