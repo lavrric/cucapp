@@ -4,7 +4,7 @@ import "./custom-button.scss";
 const CustomButton = ({ children, handleClick, important, ...otherProps }) => (
   <button
     className={`${important ? "important" : ""} custom-button`}
-    onClick={handleClick}
+    //onClick={handleClick}
     {...otherProps}
   >
     {children}

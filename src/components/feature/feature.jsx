@@ -12,7 +12,7 @@ const Feature = () => (
       amet sagittis sodales, justo enim semper lectus, eget consequat nibh sem
       ac ipsum.
     </div>
-    <CustomButton>Joaca</CustomButton>
+    <CustomButton>Joacă</CustomButton>
   </div>
 );
 

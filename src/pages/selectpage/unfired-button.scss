@@ -3,22 +3,21 @@ $sub-color: #ffe484;
 $button-color: #007bff;
 
 .unfired-button {
-  //min-width: 50px;
-  height: auto;
+  width: auto;
   max-width: 300px;
   height: 50px;
   width: 150px;
-  margin: 15px 0px;
-  //height: 50px;
-  &:focus{outline: none}
-  letter-spacing: 0.5px;
+  outline: none;
   padding: 0px 25px 0px 25px;
+  letter-spacing: 0.5px;
   font-size: 15px;
-  background-color: rgba($base-color, 0.5);
-  color: #eee;
+  background-color: rgba($button-color, 0.5);
+  border-radius: 0.25rem;
+  &.important {
+    background-color: $button-color;
+  }
+  color: #f3f3f3;
   text-transform: uppercase;
-  //font-family: "Open Sans Condensed";
-  //font-weight: bolder;
   border: none;
-  //border: 1px solid rgb(105, 105, 105);
+  cursor: pointer;
 }

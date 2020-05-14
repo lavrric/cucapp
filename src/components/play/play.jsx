@@ -1,110 +1,179 @@
 import React from "react";
 import "./play.scss";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 import CustomButton from "..//custom-button/custom-button";
-import {firestore} from '../../firebase/firebase.utils'
-
-const testQuestions = [
-    {
-        autor: "Alexandru Lebedev",
-        intrebare:
-            "Atenție, în întrebare au fost făcute înlocuiri. Conform unei versiuni, această tradiţie, care este actuală şi azi, a apărut în secolul XVII, când marinarii britanici obişnuiau după fiecare luptă să coboare X-ul lor pentru a lăsa loc X-ului invizibil al Alfei. Aceasta sublinia măreţia şi puterea Alfei, precum şi faptul că în faţa sa toţi sunt egali – atât cei care au câştigat lupta, cât şi cei înfrânţi. Nu vă întrebăm care este tradiţia. Scrieţi ce s-a înlocuit prin X şi Alfa.",
-        raspuns:
-            "X – steag (se acceptă drapel), Alfa – Moartea Comentariu: După fiecare luptă marinarii britanici dădeau steagul în jos, lăsând un spaţiu liber egal cu lăţimea steagului. Spaţiul liber se presupunea că e ocupat de steagul invizibil al Morţii, subliniind puterea nemărginită a acesteia şi egalitatea în faţa ei a tuturor oamenilor, atât câştigători, cât şi înfrânţi. Sursa: https://thequestion.ru/questions/123125/otkuda-poshla.. vremya-traura",
-    },
-    {
-        autor: "Florea Victoria",
-        intrebare:
-            "Mama vitregă a împăratului Theophilos a decis ca mireasa să-i fie aleasă prin concurs. Astfel, în anul 820 Theophilos a adunat la curtea sa cele mai distinse domnișoare din Constantinopol. Alegând-o pe Theodora, i-a dat un obiect, ceea ce semnifica că urma să se căsătorească cu ea. Numiți obiectul prin trei cuvinte, știind că el joacă un rol central într-un basm românesc.",
-        raspuns: "Măr de aur. Sursa: https://byzantium.gr/bitwed.html",
-    },
-];
+import { firestore } from "../../firebase/firebase.utils";
+import Timer from "../../components/timer/timer";
 
 class Play extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            question: 1,
-            showAnswer: false,
-            answerUser: "",
-            metadata: {},
-            intrebari: []
-        };
-    }
-
-    componentDidMount(){
-        const func = async () => {
-            let newState = {};
-            await firestore.collection('metadata').doc('metadata').get().then((doc) => newState.metadata = doc.data().pachete[this.props.id]);
-            await firestore.doc(newState.metadata.db_link).get().then((doc) => newState.intrebari = doc.data().arr);
-            this.setState(newState);
-        }
-        func();
-    }
-
-    handleChange = (event) => {
-        this.setState({ answerUser: event.target.value });
+  constructor(props) {
+    super(props);
+    this.state = {
+      nr_intrebare: 1,
+      showAnswer: false,
+      answerUser: "",
+      metadata: {},
+      intrebari: [{ intrebare: "" }],
+      raspunsuri: [],
     };
+  }
 
-    render() {
-        console.log(this.state.metadata);
-        console.log(this.state.intrebari);
-        return (
-            <div className="gamepage">
-                <div className="text">
-                    <div className="question">
-                        <div className="title">Intrebare:</div>
-                        {testQuestions[this.state.question - 1].intrebare}
-                    </div>
+  componentDidMount() {
+    const func = async () => {
+      let newState = {};
+      await firestore
+        .collection("metadata")
+        .doc("metadata")
+        .get()
+        .then((doc) => (newState.metadata = doc.data().pachete[this.props.id]));
+      await firestore
+        .doc(newState.metadata.db_link)
+        .get()
+        .then((doc) => (newState.intrebari = doc.data().arr));
+      this.setState(newState);
+    };
+    func();
+  }
 
-                    <div
-                        className="answer"
-                        style={{
-                            visibility: this.state.showAnswer ? "visible" : "hidden",
-                            position: "relative",
-                        }}
-                    >
-                        <div className="title">Raspuns:</div>
-                        <div
-                            className="background"
-                            style={{
-                                visibility: this.state.showAnswer ? "hidden" : "visible",
-                            }}
-                        />
-                        {`${testQuestions[this.state.question - 1].raspuns}`}
-                        <span style={{ fontWeight: "500" }}>{` (Autor: ${
-                            testQuestions[this.state.question - 1].autor
-                            })`}</span>
-                    </div>
-                </div>
+  handleChange = (event) => {
+    this.setState({ answerUser: event.target.value });
+  };
 
-                <div className="interaction">
-                    <div className="try">
-                        <input value={this.state.value} placeholder="Raspunsul tau..." onChange={this.handleChange} />
-                        <CustomButton onClick={this.handleClick}>
-                            Vezi raspunsul
-            </CustomButton>
-                    </div>
-                    <div
-                        className="judge"
-                        style={{
-                            visibility: this.state.showAnswer ? "visible" : "hidden",
-                        }}
-                    >
-                        <div className="title">Consideri ca rapsunsul tau este corect?</div>
-                        <CustomButton>Da</CustomButton>
-                        <CustomButton>Nu</CustomButton>
-                    </div>
-                    <CustomButton
-                        important
-                        style={{ margin: "50px auto", width: "calc(100% - 400px)" }}
-                    >
-                        Urmatoarea Intrebare
-          </CustomButton>
-                </div>
+  handleShowAnswer = () => this.setState({ showAnswer: true });
+
+  handleNext = () => {
+    this.setState((prevState) => ({
+      showAnswer: false,
+      nr_intrebare:
+        prevState.nr_intrebare +
+        (this.state.intrebari.length !== this.state.nr_intrebare),
+    }));
+  };
+
+  handleTrue = () => {
+    let newState = {};
+    newState.raspunsuri = this.state.raspunsuri;
+    if (this.state.raspunsuri.length === this.state.nr_intrebare) {
+      newState.raspunsuri[this.state.nr_intrebare - 1] = true;
+    } else newState.raspunsuri.push(true);
+    this.setState(newState);
+    console.log(this.state.raspunsuri);
+  };
+
+  handleFalse = () => {
+    let newState = {};
+    newState.raspunsuri = this.state.raspunsuri;
+    if (this.state.raspunsuri.length === this.state.nr_intrebare) {
+      newState.raspunsuri[this.state.nr_intrebare - 1] = false;
+    } else newState.raspunsuri.push(false);
+    this.setState(newState);
+    console.log(this.state.raspunsuri);
+  };
+
+  render() {
+    return (
+      <div className="gamepage">
+        <div className="text">
+          <div className="question">
+            <div className="title">
+              Întrebarea {`${this.state.nr_intrebare}`}:
+              <Timer
+                time={
+                  60 +
+                  Math.floor(
+                    (this.state.intrebari[
+                      this.state.nr_intrebare - 1
+                    ].intrebare.split(" ").length *
+                      3) /
+                      10
+                  )
+                }
+              />
             </div>
-        );
-    }
+            {this.state.intrebari[
+              this.state.nr_intrebare - 1
+            ].intrebare.substring(
+              11,
+              this.state.intrebari[this.state.nr_intrebare - 1].intrebare
+                .length + 1
+            )}
+          </div>
+
+          <div
+            className="answer"
+            style={{
+              visibility: this.state.showAnswer ? "visible" : "hidden",
+              position: "relative",
+            }}
+          >
+            <div className="title">Răspuns:</div>
+            <div
+              className="background"
+              style={{
+                visibility: this.state.showAnswer ? "hidden" : "visible",
+              }}
+            />
+            {`${this.state.intrebari[this.state.nr_intrebare - 1].raspuns}`}
+            <span style={{ fontWeight: "bold" }}>{` (Autor: ${
+              this.state.intrebari[this.state.nr_intrebare - 1].autor
+            })`}</span>
+          </div>
+        </div>
+
+        <div className="interaction">
+          <div className="try">
+            <input
+              value={this.state.value}
+              placeholder="Răspunsul tău..."
+              onChange={this.handleChange}
+            />
+            <CustomButton onClick={this.handleShowAnswer}>
+              Vezi răspunsul
+            </CustomButton>
+          </div>
+          <div
+            className="judge"
+            style={{
+              visibility: this.state.showAnswer ? "visible" : "hidden",
+            }}
+          >
+            <div className="title">Consideri ca răspunsul tău este corect?</div>
+            <CustomButton
+              onClick={this.handleTrue}
+              style={{
+                backgroundColor:
+                  this.state.raspunsuri.length === this.state.nr_intrebare &&
+                  this.state.raspunsuri[this.state.nr_intrebare - 1] === true
+                    ? "#7952b3"
+                    : "#6c757d",
+              }}
+            >
+              Da
+            </CustomButton>
+            <CustomButton
+              onClick={this.handleFalse}
+              style={{
+                backgroundColor:
+                  this.state.raspunsuri.length === this.state.nr_intrebare &&
+                  this.state.raspunsuri[this.state.nr_intrebare - 1] === false
+                    ? "#7952b3"
+                    : "#6c757d",
+              }}
+            >
+              Nu
+            </CustomButton>
+          </div>
+          <CustomButton
+            onClick={this.handleNext}
+            important
+            style={{ margin: "50px auto", width: "calc(100% - 400px)" }}
+          >
+            Următoarea întrebare
+          </CustomButton>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default withRouter(Play);

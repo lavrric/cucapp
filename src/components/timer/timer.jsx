@@ -9,6 +9,13 @@ class Timer extends React.Component {
       seconds: props.time - Math.floor(props.time / 60) * 60,
     };
   }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.time != nextProps.time)
+      this.setState({
+        minutes: Math.floor(nextProps.time / 60),
+        seconds: nextProps.time - Math.floor(nextProps.time / 60) * 60,
+      });
+  }
   componentDidMount() {
     this.myInterval = setInterval(() => {
       const { seconds, minutes } = this.state;
@@ -32,7 +39,7 @@ class Timer extends React.Component {
   render() {
     const { minutes, seconds } = this.state;
     return (
-      <div class="timer">
+      <div className="timer">
         <div className="title">
           Timp Rămas: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </div>

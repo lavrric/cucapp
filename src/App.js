@@ -5,7 +5,6 @@ import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
 import SelectPage from "./pages/selectpage/selectpage";
-import { firestore } from "./firebase/firebase.utils";
 
 class App extends React.Component {
   constructor(props) {
