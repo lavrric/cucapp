@@ -12,7 +12,6 @@ export default class SelectPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <GameList
