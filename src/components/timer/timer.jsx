@@ -10,15 +10,23 @@ class Timer extends React.Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.time != nextProps.time)
-      this.setState({
-        minutes: Math.floor(nextProps.time / 60),
-        seconds: nextProps.time - Math.floor(nextProps.time / 60) * 60,
-      });
+    const newState = {
+      minutes: Math.floor(nextProps.time / 60),
+      seconds: nextProps.time - Math.floor(nextProps.time / 60) * 60,
+    };
+    
+    this.setState(newState, this.setTimer());
+
+    
   }
-  componentDidMount() {
+
+  setTimer() {
+    clearInterval(this.myInterval);
+
     this.myInterval = setInterval(() => {
       const { seconds, minutes } = this.state;
+
+      console.log(seconds);
       if (seconds > 0) {
         this.setState(({ seconds }) => ({
           seconds: seconds - 1,
@@ -35,6 +43,10 @@ class Timer extends React.Component {
         }
       }
     }, 1000);
+  }
+
+  componentDidMount() {
+    this.setTimer();
   }
   render() {
     const { minutes, seconds } = this.state;
