@@ -43,14 +43,15 @@ class Play extends React.Component {
 
   handleNext = () => {
     let newState = {};
-    newState.raspunsuri = this.state.raspunsuri;
-    newState.showAnswer = false;
-    newState.nr_intrebare = this.state.nr_intrebare + 1;
-    if (this.state.raspunsuri.length < this.state.nr_intrebare) {
-      newState.raspunsuri.push(false);
+    if (this.state.nr_intrebare < this.state.intrebari.length) {
+      newState.raspunsuri = this.state.raspunsuri;
+      newState.showAnswer = false;
+      newState.nr_intrebare = this.state.nr_intrebare + 1;
+      if (this.state.raspunsuri.length < this.state.nr_intrebare) {
+        newState.raspunsuri.push(false);
+      }
+      this.setState(newState);
     }
-    this.setState(newState);
-    console.log(this.state.raspunsuri);
   };
 
   handleTrue = () => {
