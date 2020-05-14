@@ -13,4 +13,10 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .bar{
+    width: 1px;
+    height: 60%;
+    border-left: 1px solid #cc8df7;
+  }
 }
