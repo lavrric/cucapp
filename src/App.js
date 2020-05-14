@@ -13,19 +13,13 @@ class App extends React.Component {
     this.state = { pachete: [] };
   }
 
-  componentDidMount() {
-    firestore.collection('metadata').doc('metadata').get().then((doc) => { 
-      this.setState({pachete: doc.data().pachete});
-    });
-  }
-
   render() {
     return (
       <BrowserRouter>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/play/:id" render={(props) => <GamePage {...props} pachete={this.state.pachete} />} />
+          <Route path="/play/:id" component={GamePage} />
           <Route
             exact
             path="/select"

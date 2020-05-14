@@ -6,10 +6,17 @@ import GameItem from "../game-item/game-item";
 import UnfiredButton from "../../pages/selectpage/unfired-button";
 import FiredButton from "../../pages/selectpage/fired-button";
 
+import {firestore} from '../../firebase/firebase.utils'
+import {withRouter} from 'react-router-dom'
+
 class GameList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selected: 4206942 };
+    this.state = { selected: 4206942, pachete: [] };
+  }
+
+  componentDidMount(){
+    firestore.collection('metadata').doc('metadata').get().then((doc) => doc.data().pachete).then(pachete => this.setState({ pachete }));
   }
 
   handleSelect = (id) => {
@@ -42,7 +49,7 @@ class GameList extends React.Component {
           handleSelect={() => null}
         />
         <div className="game-list-items">
-          {this.props.pachete.map(({ ...otherProps }, i) =>
+          {this.state.pachete.map(({ ...otherProps }, i) =>
             normalize(otherProps.sezonul).includes(searchText) ||
             normalize(otherProps.etapa).includes(searchText) ||
             normalize(otherProps.autori.toString()).includes(searchText) ? (
@@ -62,11 +69,11 @@ class GameList extends React.Component {
         {this.state.selected === 4206942 ? (
           <UnfiredButton>JOACA</UnfiredButton>
         ) : (
-          <FiredButton>JOACA</FiredButton>
+          <FiredButton onClick={(e) => this.props.history.push(`/play/${this.state.selected}`)}>JOACA</FiredButton>
         )}
       </div>
     );
   }
 }
 
-export default GameList;
+export default withRouter(GameList);

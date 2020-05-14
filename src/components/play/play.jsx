@@ -2,6 +2,7 @@ import React from "react";
 import "./play.scss";
 import { withRouter } from 'react-router-dom'
 import CustomButton from "..//custom-button/custom-button";
+import {firestore} from '../../firebase/firebase.utils'
 
 const testQuestions = [
     {
@@ -19,20 +20,35 @@ const testQuestions = [
     },
 ];
 
-class GamePage extends React.Component {
+class Play extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             question: 1,
             showAnswer: false,
             answerUser: "",
+            metadata: {},
+            intrebari: []
         };
     }
+
+    componentDidMount(){
+        const func = async () => {
+            let newState = {};
+            await firestore.collection('metadata').doc('metadata').get().then((doc) => newState.metadata = doc.data().pachete[this.props.id]);
+            await firestore.doc(newState.metadata.db_link).get().then((doc) => newState.intrebari = doc.data().arr);
+            this.setState(newState);
+        }
+        func();
+    }
+
     handleChange = (event) => {
         this.setState({ answerUser: event.target.value });
     };
 
     render() {
+        console.log(this.state.metadata);
+        console.log(this.state.intrebari);
         return (
             <div className="gamepage">
                 <div className="text">
@@ -91,4 +107,4 @@ class GamePage extends React.Component {
     }
 }
 
-export default withRouter(GamePage);
+export default withRouter(Play);

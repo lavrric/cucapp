@@ -1,13 +1,13 @@
 import React from 'react'
 import Play from '../../components/play/play'
 import { withRouter, useParams } from 'react-router-dom'
+import { firestore } from '../../firebase/firebase.utils'
 
-function GamePage({ pachete }) {
+function GamePage() {
   let { id } = useParams();
-  console.log(id);
   return (
     <div>
-      <Play />
+      <Play id={id}/>
     </div>
   )
 }
