@@ -42,12 +42,15 @@ class Play extends React.Component {
   handleShowAnswer = () => this.setState({ showAnswer: true });
 
   handleNext = () => {
-    this.setState((prevState) => ({
-      showAnswer: false,
-      nr_intrebare:
-        prevState.nr_intrebare +
-        (this.state.intrebari.length !== this.state.nr_intrebare),
-    }));
+    let newState = {};
+    newState.raspunsuri = this.state.raspunsuri;
+    newState.showAnswer = false;
+    newState.nr_intrebare = this.state.nr_intrebare + 1;
+    if (this.state.raspunsuri.length < this.state.nr_intrebare) {
+      newState.raspunsuri.push(false);
+    }
+    this.setState(newState);
+    console.log(this.state.raspunsuri);
   };
 
   handleTrue = () => {
@@ -57,7 +60,6 @@ class Play extends React.Component {
       newState.raspunsuri[this.state.nr_intrebare - 1] = true;
     } else newState.raspunsuri.push(true);
     this.setState(newState);
-    console.log(this.state.raspunsuri);
   };
 
   handleFalse = () => {
@@ -67,7 +69,6 @@ class Play extends React.Component {
       newState.raspunsuri[this.state.nr_intrebare - 1] = false;
     } else newState.raspunsuri.push(false);
     this.setState(newState);
-    console.log(this.state.raspunsuri);
   };
 
   render() {
