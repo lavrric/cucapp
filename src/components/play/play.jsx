@@ -91,7 +91,15 @@ class Play extends React.Component {
         newState.raspunsuri.push(false);
       }
       this.setState(newState);
-    }
+    } else
+      alert(
+        `Ați ajuns la sfârșitul pachetului, obținând ${this.state.raspunsuri.reduce(
+          (prev, cur) => prev + (cur ? 1 : 0),
+          0
+        )} răspunsuri corecte din ${
+          this.state.nr_intrebare
+        } posibile. Felicitări!`
+      );
   };
 
   handleTrue = () => {
@@ -118,16 +126,23 @@ class Play extends React.Component {
         <div className="text">
           <div className="question">
             <div className="title">
-              Întrebarea {`${this.state.nr_intrebare}`}:
+              Întrebarea
+              {` ${
+                this.state.nr_intrebare
+              } (scor: ${this.state.raspunsuri.reduce(
+                (prev, cur) => prev + (cur ? 1 : 0),
+                0
+              )}/${this.state.nr_intrebare})`}
+              :
               <Timer
                 time={
-                  0 +
+                  60 +
                   Math.floor(
                     (this.state.intrebari[
                       this.state.nr_intrebare - 1
                     ].intrebare.split(" ").length *
-                      4.7) /
-                      10
+                      9) /
+                      20
                   )
                 }
               />
@@ -150,9 +165,9 @@ class Play extends React.Component {
               }}
             />
             {`${this.state.intrebari[this.state.nr_intrebare - 1].raspuns}`}
-            <span style={{ fontWeight: "bold" }}>{`\n\nAutor: ${
+            <span style={{ fontWeight: "bold" }}>{` (Autor: ${
               this.state.intrebari[this.state.nr_intrebare - 1].autor
-            }`}</span>
+            })`}</span>
           </div>
         </div>
 
