@@ -23,7 +23,7 @@ const HomePage = () => (
       <div className="bar" />
       <Feature
         title="Caută Întrebări"
-        text="Mick-unealta secretă! Acestă mick-unealtă vă va permite să gasiți intrebarea aia care vă stă de atâta timp pe limba dar nu v-o puteți aminti. Perfect într-adevăr! Această opțiune este în curs de dezvoltare. "
+        text="Mick-unealta secretă! Acestă mick-unealtă vă va permite să gasiți intrebarea aia care vă stă de atâta timp pe limbă, dar nu v-o puteți aminti. Perfect într-adevăr! Această opțiune este în curs de dezvoltare. "
         a="/"
       />
     </div>
