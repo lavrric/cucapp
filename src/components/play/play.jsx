@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import CustomButton from "..//custom-button/custom-button";
 import { firestore } from "../../firebase/firebase.utils";
 import Timer from "../../components/timer/timer";
-import { ReactComponent as Owl } from "../../assets/owl1.svg";
+import { ReactComponent as Owl} from "../../assets/owl1.svg";
 
 class Play extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Play extends React.Component {
     this.state = {
       nr_intrebare: 1,
       showAnswer: false,
+      loading: true,
       answerUser: "",
       metadata: {},
       intrebari: [{ intrebare: "" }],
@@ -31,7 +32,8 @@ class Play extends React.Component {
         .doc(newState.metadata.db_link)
         .get()
         .then((doc) => (newState.intrebari = doc.data().arr));
-      this.setState(newState);
+      newState.metadata.full_etapa = `${newState.metadata.sezonul} ${newState.metadata.etapa}`;
+      this.setState({ ...newState, loading: false });
     };
     function shuffle(array) {
       var currentIndex = array.length,
@@ -69,10 +71,26 @@ class Play extends React.Component {
           full_etapa: `${pachete[index].sezonul} ${pachete[index].etapa}`,
         });
       }
-      this.setState({ intrebari });
+      this.setState({ intrebari, loading: false });
     };
-    if (this.props.id != 424242) func1();
-    else func2();
+    if (this.props.id != 424242)
+    {
+      try {
+        func1();
+      }
+      catch(err) {
+        func1();
+      }
+    }
+    else 
+    {
+      try {
+        func2();
+      }
+      catch(err) {
+        func2();
+      }
+    }
   }
 
   handleChange = (event) => {
@@ -121,35 +139,57 @@ class Play extends React.Component {
   };
 
   render() {
+    console.log(this.state.loading);
     return (
       <div className="gamepage">
         <div className="text">
           <div className="question">
             <div className="title">
-              Întrebarea
-              {` ${
-                this.state.nr_intrebare
-              } (scor: ${this.state.raspunsuri.reduce(
-                (prev, cur) => prev + (cur ? 1 : 0),
-                0
-              )}/${this.state.nr_intrebare})`}
-              :
-              <Timer
-                time={
-                  60 +
-                  Math.floor(
-                    (this.state.intrebari[
-                      this.state.nr_intrebare - 1
-                    ].intrebare.split(" ").length *
-                      9) /
-                      20
-                  )
-                }
-              />
+              {this.state.loading ? (
+                <b>Se încarcă...</b>
+              ) : (
+                <>
+                  Întrebarea
+                  {` ${
+                    this.state.nr_intrebare
+                  } (scor: ${this.state.raspunsuri.reduce(
+                    (prev, cur) => prev + (cur ? 1 : 0),
+                    0
+                  )}/${this.state.nr_intrebare})`}
+                  {this.state.showAnswer ? (
+                    <></>
+                  ) : (
+                    <Timer
+                      time={
+                        60 +
+                        Math.floor(
+                          (this.state.intrebari[
+                            this.state.nr_intrebare - 1
+                          ].intrebare.split(" ").length *
+                            9) /
+                            20
+                        )
+                      }
+                    />
+                  )}
+                </>
+              )}
             </div>
             {this.state.intrebari[this.state.nr_intrebare - 1].intrebare}
+            {this.state.loading ? (
+              <></>
+            ) : (
+              <>
+                <br />
+                <span style={{ fontWeight: "bold" }}>{` Etapa: ${
+                  this.props.id == 424242
+                    ? this.state.intrebari[this.state.nr_intrebare - 1]
+                        .full_etapa
+                    : this.state.metadata.full_etapa
+                }`}</span>
+              </>
+            )}
           </div>
-
           <div
             className="answer"
             style={{
@@ -165,9 +205,10 @@ class Play extends React.Component {
               }}
             />
             {`${this.state.intrebari[this.state.nr_intrebare - 1].raspuns}`}
-            <span style={{ fontWeight: "bold" }}>{` (Autor: ${
+            <br />
+            <span style={{ fontWeight: "bold" }}>{` Autor: ${
               this.state.intrebari[this.state.nr_intrebare - 1].autor
-            })`}</span>
+            }`}</span>
           </div>
         </div>
 
@@ -188,15 +229,15 @@ class Play extends React.Component {
               visibility: this.state.showAnswer ? "visible" : "hidden",
             }}
           >
-            <div className="title">Consideri ca răspunsul tău este corect?</div>
+            <div className="title">Consideri că răspunsul tău este corect?</div>
             <CustomButton
               onClick={this.handleTrue}
               style={{
                 backgroundColor:
                   this.state.raspunsuri.length === this.state.nr_intrebare &&
                   this.state.raspunsuri[this.state.nr_intrebare - 1] === true
-                    ? "#7952b3"
-                    : "#6c757d",
+                    ? "#49ad40"
+                    : "#b0cfae",
               }}
             >
               Da
@@ -207,8 +248,8 @@ class Play extends React.Component {
                 backgroundColor:
                   this.state.raspunsuri.length === this.state.nr_intrebare &&
                   this.state.raspunsuri[this.state.nr_intrebare - 1] === false
-                    ? "#7952b3"
-                    : "#6c757d",
+                    ? "#ff4f42"
+                    : "#ffaca6",
               }}
             >
               Nu

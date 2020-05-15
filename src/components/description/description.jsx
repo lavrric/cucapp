@@ -1,17 +1,23 @@
 import React from "react";
 import "./description.scss";
 
+import logo from '../../assets/owlmov.svg'
+
 const Description = () => (
   <div className="description">
-    <div className="title">CuCapp</div>
+    <div className="title">
+      <img style={{height: '3.6rem'}}
+        src={logo}
+        alt=""
+      />
+      CuCapp
+    </div>
     {/* <divc className="bar" /> */}
     <div className="text">
-      Ce este jocul Ce Unde Când? Simplu - un joc intelectual pentru tine și
-      prietenii tăi. Întrebări provocatoare, răspunsuri și mai și! Indiferent
-      dacă ești un veteran al jocului sau de-abia începi să-i descoperi
-      frumusețea, CuCapp te invită să joci online diferite pachete și întrebări
-      chiar și de la tine de acasă. Demonstrează-ți că ești Cu Cap, Joacă
-      CuCapp!
+      Ce? Unde? Când? este un joc intelectual destinat tuturor celor pasionați
+      de întrebări provocatoare și răspunsuri frumoase. Fie că joci singur sau
+      împreună cu echipa ta, CuCapp îți permite să faci asta comod, direct din
+      fața ecranului. Joacă Cu Cap!
     </div>
   </div>
 );
