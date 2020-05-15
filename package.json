@@ -2,6 +2,7 @@
   "name": "cucapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lavric.github.io/cucapp",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -16,7 +17,6 @@
     "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "homepage": "https://lavric.github.io/cucapp"
   },
   "scripts": {
     "start": "react-scripts start",
