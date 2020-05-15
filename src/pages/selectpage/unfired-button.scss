@@ -1,6 +1,6 @@
 $base-color: #7952b3;
 $sub-color: #ffe484;
-$button-color: #007bff;
+$button-color: #5957f0;
 
 .unfired-button {
   width: auto;
@@ -16,7 +16,7 @@ $button-color: #007bff;
   &.important {
     background-color: $button-color;
   }
-  color: #f3f3f3;
+  color: #ffffff;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
