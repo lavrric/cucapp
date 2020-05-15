@@ -1,7 +1,7 @@
 $base-color: #7952b3;
 $sub-color: #ffe484;
 $button-color: #007bff;
-$sub-button-color: #9f88ac;
+$sub-button-color: #f0bf57;
 
 .custom-button {
   width: auto;
@@ -16,7 +16,7 @@ $sub-button-color: #9f88ac;
   &.important {
     background-color: $button-color;
   }
-  color: #f3f3f3;
+  color: #ffffff;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
