@@ -12,7 +12,7 @@ const GameItem = ({
   handleSelect,
   id,
   nivel,
-  id_tabel
+  id_tabel,
 }) => {
   let color = "";
   switch (nivel) {
@@ -23,7 +23,7 @@ const GameItem = ({
       color = "rgb(255, 102, 102)";
       break;
     case "Simplu":
-      color = "rgb(102, 255, 51)";
+      color = "#49ad40";
       break;
     default:
       color = "rgb(0,0,0)";
@@ -31,9 +31,7 @@ const GameItem = ({
   return (
     <div
       className={`${grey ? "grey" : ""} ${first ? "first" : ""} ${
-        selected === id
-          ? "selected"
-          : ""
+        selected === id ? "selected" : ""
       } game-item`}
       onClick={(e) => handleSelect(id)}
     >
