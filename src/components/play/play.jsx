@@ -73,7 +73,7 @@ class Play extends React.Component {
       }
       this.setState({ intrebari, loading: false });
     };
-    if (this.props.id !== 424242) {
+    if (this.props.id != 424242) {
       try {
         func1();
       } catch (err) {
@@ -189,7 +189,7 @@ class Play extends React.Component {
                 <span style={{ fontWeight: "bold" }}>
                   <br />
                   {`Etapa: ${
-                    this.props.id === 424242
+                    this.props.id == 424242
                       ? this.state.intrebari[this.state.nr_intrebare - 1]
                           .full_etapa
                       : this.state.metadata.full_etapa
