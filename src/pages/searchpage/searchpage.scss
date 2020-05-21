@@ -1,16 +1,3 @@
-input {
-    background: none;
-    color: grey;
-    font-size: 18px;
-    padding: 10px 10px 10px 15px;
-    margin: 0px 0px 20px auto;
-    display: block;
-    width: 400px;
-    border: none;
-    border-radius: 20px;
-    border: 1px solid grey;
-
-    &:focus {
-      outline: none;
-    }
-  }
+li.ais-Hits-item {
+    width: calc(100% - 1rem);
+}
