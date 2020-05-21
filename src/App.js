@@ -5,6 +5,7 @@ import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
 import SelectPage from "./pages/selectpage/selectpage";
+import SearchPage from "./pages/searchpage/searchpage"
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
               <SelectPage {...props} pachete={this.state.pachete} />
             )}
           />
+          <Route exact path="/search" component={SearchPage} />
         </Switch>
       </BrowserRouter>
     );

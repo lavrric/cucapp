@@ -41,7 +41,7 @@ const GameItem = ({
       <div className="game-item-characteristic autori">{autori.join(", ")}</div>
       <div
         className="game-item-characteristic nivel"
-        style={{ color: color, "font-weight": first ? "regular" : "bold" }}
+        style={{ color: color, "fontWeight": first ? "regular" : "bold" }}
       >
         {nivel}
       </div>

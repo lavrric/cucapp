@@ -17,7 +17,7 @@ const Header = () => (
       <Link to="/play/424242" className="option">
         Joacă Random
       </Link>
-      <Link className="option">Caută întrebări</Link>
+      <Link className="option" to="/search">Caută întrebări</Link>
       {/* <Link className="option">Înregistrează-te</Link> */}
       <Link className="option">Despre proiect</Link>
     </div>
