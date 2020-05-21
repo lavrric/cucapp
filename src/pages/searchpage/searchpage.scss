@@ -3,7 +3,8 @@ $base-color: #7952b3;
 
 li.ais-Hits-item {
     width: calc(100% - 1rem);
-    border-radius: 20px;
+    border-radius: 7px;
+    border-color: $base-color;
 }
 
 .ais-SearchBox-submitIcon{
@@ -15,10 +16,9 @@ li.ais-Hits-item {
     color: grey;
     font-size: 18px;
     padding: 5px 10px;
-    margin: 15px auto;
+    margin: 10px auto;
     display: block;
     width: 70%;
-    border-radius: 10px;
 
     &:focus {
       outline: none;
@@ -29,10 +29,10 @@ li.ais-Hits-item {
     &:focus {
       outline: none;
     }
-    border: 1px solid grey;
+    border: 1px solid $base-color;
     padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 7px;
+    
 }
 
 .ais-SearchBox-resetIcon{
