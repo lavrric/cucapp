@@ -1,6 +1,6 @@
 import React from "react";
 import algoliasearch from "algoliasearch/lite";
-import { InstantSearch, SearchBox, Hits, Highlight } from "react-instantsearch-dom";
+import { InstantSearch, SearchBox, Hits, Highlight, Pagination } from "react-instantsearch-dom";
 import "./searchpage.scss";
 
 const searchClient = algoliasearch(
@@ -37,6 +37,7 @@ const SearchPage = () => (
       translations={{ placeholder: "Caută după întrebare/autor/răspuns" }}
     />
     <Hits hitComponent={Hit} />
+    <Pagination showLast />
   </InstantSearch>
 );
 
