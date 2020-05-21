@@ -5,7 +5,11 @@ import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
 import SelectPage from "./pages/selectpage/selectpage";
+<<<<<<< HEAD
 import SearchPage from "./pages/searchpage/searchpage"
+=======
+import EndPage from "./pages/endpage/endpage";
+>>>>>>> 636eb902181b18cc9e1338a931517b359913cf00
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +31,11 @@ class App extends React.Component {
               <SelectPage {...props} pachete={this.state.pachete} />
             )}
           />
+<<<<<<< HEAD
           <Route exact path="/search" component={SearchPage} />
+=======
+          <Route exact path="/review" component={EndPage} />
+>>>>>>> 636eb902181b18cc9e1338a931517b359913cf00
         </Switch>
       </BrowserRouter>
     );

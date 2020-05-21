@@ -72,14 +72,14 @@ class GameList extends React.Component {
           )}
         </div>
         {this.state.selected === 4206942 ? (
-          <UnfiredButton>JOACA</UnfiredButton>
+          <UnfiredButton>JOACĂ</UnfiredButton>
         ) : (
           <FiredButton
             onClick={(e) =>
               this.props.history.push(`/play/${this.state.selected}`)
             }
           >
-            JOACA
+            JOACĂ
           </FiredButton>
         )}
       </div>

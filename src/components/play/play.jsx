@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import CustomButton from "..//custom-button/custom-button";
 import { firestore } from "../../firebase/firebase.utils";
 import Timer from "../../components/timer/timer";
-import { ReactComponent as Owl} from "../../assets/owl1.svg";
+import { ReactComponent as Owl } from "../../assets/owl1.svg";
 
 class Play extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Play extends React.Component {
       loading: true,
       answerUser: "",
       metadata: {},
-      intrebari: [{ intrebare: "" }],
+      intrebari: [{ intrebare: "", raspuns: "" }],
       raspunsuri: [],
     };
   }
@@ -73,21 +73,16 @@ class Play extends React.Component {
       }
       this.setState({ intrebari, loading: false });
     };
-    if (this.props.id != 424242)
-    {
+    if (this.props.id != 424242) {
       try {
         func1();
-      }
-      catch(err) {
+      } catch (err) {
         func1();
       }
-    }
-    else 
-    {
+    } else {
       try {
         func2();
-      }
-      catch(err) {
+      } catch (err) {
         func2();
       }
     }
@@ -99,15 +94,17 @@ class Play extends React.Component {
 
   handleShowAnswer = () => this.setState({ showAnswer: true });
 
-  handleNext = () => {
+  handleTrue = () => {
     let newState = {};
+    newState.raspunsuri = this.state.raspunsuri;
+    newState.raspunsuri.push(true);
+    this.setState(newState);
+    newState = {};
     if (this.state.nr_intrebare < this.state.intrebari.length) {
       newState.raspunsuri = this.state.raspunsuri;
       newState.showAnswer = false;
+      newState.answerUser = "";
       newState.nr_intrebare = this.state.nr_intrebare + 1;
-      if (this.state.raspunsuri.length < this.state.nr_intrebare) {
-        newState.raspunsuri.push(false);
-      }
       this.setState(newState);
     } else
       alert(
@@ -120,22 +117,27 @@ class Play extends React.Component {
       );
   };
 
-  handleTrue = () => {
-    let newState = {};
-    newState.raspunsuri = this.state.raspunsuri;
-    if (this.state.raspunsuri.length === this.state.nr_intrebare) {
-      newState.raspunsuri[this.state.nr_intrebare - 1] = true;
-    } else newState.raspunsuri.push(true);
-    this.setState(newState);
-  };
-
   handleFalse = () => {
     let newState = {};
     newState.raspunsuri = this.state.raspunsuri;
-    if (this.state.raspunsuri.length === this.state.nr_intrebare) {
-      newState.raspunsuri[this.state.nr_intrebare - 1] = false;
-    } else newState.raspunsuri.push(false);
+    newState.raspunsuri.push(false);
     this.setState(newState);
+    newState = {};
+    if (this.state.nr_intrebare < this.state.intrebari.length) {
+      newState.raspunsuri = this.state.raspunsuri;
+      newState.showAnswer = false;
+      newState.answerUser = "";
+      newState.nr_intrebare = this.state.nr_intrebare + 1;
+      this.setState(newState);
+    } else
+      alert(
+        `Ați ajuns la sfârșitul pachetului, obținând ${this.state.raspunsuri.reduce(
+          (prev, cur) => prev + (cur ? 1 : 0),
+          0
+        )} răspunsuri corecte din ${
+          this.state.nr_intrebare
+        } posibile. Felicitări!`
+      );
   };
 
   render() {
@@ -150,12 +152,21 @@ class Play extends React.Component {
               ) : (
                 <>
                   Întrebarea
-                  {` ${
-                    this.state.nr_intrebare
-                  } (scor: ${this.state.raspunsuri.reduce(
-                    (prev, cur) => prev + (cur ? 1 : 0),
-                    0
-                  )}/${this.state.nr_intrebare})`}
+                  {` ${this.state.nr_intrebare}`} (
+                  <span style={{ color: "#49ad40" }}>
+                    {`${this.state.raspunsuri.reduce(
+                      (prev, cur) => prev + (cur ? 1 : 0),
+                      0
+                    )}`}
+                  </span>
+                  <span style={{ padding: "0 3px" }}>:</span>
+                  <span style={{ color: "rgb(255, 102, 102)" }}>
+                    {`${this.state.raspunsuri.reduce(
+                      (prev, cur) => prev + (cur ? 0 : 1),
+                      0
+                    )}`}
+                  </span>
+                  )
                   {this.state.showAnswer ? (
                     <></>
                   ) : (
@@ -181,12 +192,14 @@ class Play extends React.Component {
             ) : (
               <>
                 <br />
-                <span style={{ fontWeight: "900 ! important" }}>{` Etapa: ${
-                  this.props.id == 424242
-                    ? this.state.intrebari[this.state.nr_intrebare - 1]
-                        .full_etapa
-                    : this.state.metadata.full_etapa
-                }`}</span>
+                <span style={{ fontWeight: "bold" }}>
+                  {`Etapa: ${
+                    this.props.id == 424242
+                      ? this.state.intrebari[this.state.nr_intrebare - 1]
+                          .full_etapa
+                      : this.state.metadata.full_etapa
+                  }`}
+                </span>
               </>
             )}
           </div>
@@ -204,9 +217,30 @@ class Play extends React.Component {
                 visibility: this.state.showAnswer ? "hidden" : "visible",
               }}
             />
-            {`${this.state.intrebari[this.state.nr_intrebare - 1].raspuns}`}
-            <br />
-            <span style={{ fontWeight: "bold" }}>{` Autor: ${
+            {this.state.intrebari[this.state.nr_intrebare - 1].raspuns
+              .split(/Comentariu:|Surs[aă]:|Comentariu|Surs[aă]|S:|C:/)
+              .map((s, i, a) =>
+                s.trim().length > 0 ? (
+                  <>
+                    {console.log(s)}
+                    <div
+                      style={{
+                        fontWeight: i === 0 && a.length > 1 ? "bold" : "normal",
+                        paddingBottom: "3px",
+                        textAlign:
+                          s.trim().substr(0, 4) === "http" ? "left" : "justify",
+                      }}
+                    >
+                      {s.trim().substr(0, 4) === "http"
+                        ? `Sursa: ${s.trim()}`
+                        : i > 0
+                        ? `Comentariu: ${s.trim()}`
+                        : s.trim()}
+                    </div>
+                  </>
+                ) : null
+              )}
+            <span>{`Autor: ${
               this.state.intrebari[this.state.nr_intrebare - 1].autor
             }`}</span>
           </div>
@@ -215,7 +249,7 @@ class Play extends React.Component {
         <div className="interaction">
           <div className="try">
             <input
-              value={this.state.value}
+              value={this.state.answerUser}
               placeholder="Răspunsul tău..."
               onChange={this.handleChange}
             />
@@ -233,11 +267,7 @@ class Play extends React.Component {
             <CustomButton
               onClick={this.handleTrue}
               style={{
-                backgroundColor:
-                  this.state.raspunsuri.length === this.state.nr_intrebare &&
-                  this.state.raspunsuri[this.state.nr_intrebare - 1] === true
-                    ? "#49ad40"
-                    : "#b0cfae",
+                backgroundColor: "#49ad40",
               }}
             >
               Da
@@ -245,23 +275,12 @@ class Play extends React.Component {
             <CustomButton
               onClick={this.handleFalse}
               style={{
-                backgroundColor:
-                  this.state.raspunsuri.length === this.state.nr_intrebare &&
-                  this.state.raspunsuri[this.state.nr_intrebare - 1] === false
-                    ? "#ff4f42"
-                    : "#ffaca6",
+                backgroundColor: "#ff4f42",
               }}
             >
               Nu
             </CustomButton>
           </div>
-          <CustomButton
-            onClick={this.handleNext}
-            important
-            style={{ margin: "50px auto", width: "calc(100% - 400px)" }}
-          >
-            Următoarea întrebare
-          </CustomButton>
         </div>
       </div>
     );
