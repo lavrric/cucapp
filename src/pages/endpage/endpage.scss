@@ -21,19 +21,27 @@
       .option {
         border-top: 1px solid black;
         border-left: 1px solid black;
-        width: 70px;
+        width: 50px;
         padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: justify;
 
         &.intrebare,
         &.raspuns {
-          flex-grow: 3;
+          flex-grow: 6;
         }
         &.raspuns_user {
-          flex-grow: 1;
+          flex-grow: 2;
         }
         &.corect {
+          text-align: center;
+          flex-grow: 1;
           border-right: 1px solid black;
+        }
+        &.id {
+          text-align: center;
         }
       }
     }

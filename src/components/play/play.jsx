@@ -152,15 +152,21 @@ class Play extends React.Component {
               ) : (
                 <>
                   Întrebarea
-                  {` ${
-                    this.state.nr_intrebare
-                  } (scor: ${this.state.raspunsuri.reduce(
-                    (prev, cur) => prev + (cur ? 1 : 0),
-                    0
-                  )}:${this.state.raspunsuri.reduce(
-                    (prev, cur) => prev + (cur ? 0 : 1),
-                    0
-                  )})`}
+                  {` ${this.state.nr_intrebare}`} (
+                  <span style={{ color: "#49ad40" }}>
+                    {`${this.state.raspunsuri.reduce(
+                      (prev, cur) => prev + (cur ? 1 : 0),
+                      0
+                    )}`}
+                  </span>
+                  <span style={{ padding: "0 3px" }}>:</span>
+                  <span style={{ color: "rgb(255, 102, 102)" }}>
+                    {`${this.state.raspunsuri.reduce(
+                      (prev, cur) => prev + (cur ? 0 : 1),
+                      0
+                    )}`}
+                  </span>
+                  )
                   {this.state.showAnswer ? (
                     <></>
                   ) : (
@@ -187,7 +193,6 @@ class Play extends React.Component {
               <>
                 <br />
                 <span style={{ fontWeight: "bold" }}>
-                  <br />
                   {`Etapa: ${
                     this.props.id == 424242
                       ? this.state.intrebari[this.state.nr_intrebare - 1]
@@ -213,22 +218,29 @@ class Play extends React.Component {
               }}
             />
             {this.state.intrebari[this.state.nr_intrebare - 1].raspuns
-              .split(/Comentariu:|Surs[aă]:/)
-              .map((s, i, a) => (
-                <>
-                  {console.log(s)}
-                  <span
-                    style={{
-                      fontWeight: i === 0 && a.length > 1 ? "bold" : "normal",
-                    }}
-                  >
-                    {s}
-                  </span>
-                  <br />
-                </>
-              ))}
-            <br />
-            <span style={{ fontWeight: "bold" }}>{` Autor: ${
+              .split(/Comentariu:|Surs[aă]:|Comentariu|Surs[aă]|S:|C:/)
+              .map((s, i, a) =>
+                s.trim().length > 0 ? (
+                  <>
+                    {console.log(s)}
+                    <div
+                      style={{
+                        fontWeight: i === 0 && a.length > 1 ? "bold" : "normal",
+                        paddingBottom: "3px",
+                        textAlign:
+                          s.trim().substr(0, 4) === "http" ? "left" : "justify",
+                      }}
+                    >
+                      {s.trim().substr(0, 4) === "http"
+                        ? `Sursa: ${s.trim()}`
+                        : i > 0
+                        ? `Comentariu: ${s.trim()}`
+                        : s.trim()}
+                    </div>
+                  </>
+                ) : null
+              )}
+            <span>{`Autor: ${
               this.state.intrebari[this.state.nr_intrebare - 1].autor
             }`}</span>
           </div>
