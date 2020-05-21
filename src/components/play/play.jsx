@@ -5,6 +5,7 @@ import CustomButton from "..//custom-button/custom-button";
 import { firestore } from "../../firebase/firebase.utils";
 import Timer from "../../components/timer/timer";
 import { ReactComponent as Owl } from "../../assets/owl1.svg";
+import Endpage from "../../pages/endpage/endpage";
 
 class Play extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Play extends React.Component {
       nr_intrebare: 1,
       showAnswer: false,
       loading: true,
-      answerUser: "",
+      answerUser: [""],
       metadata: {},
       intrebari: [{ intrebare: "", raspuns: "" }],
       raspunsuri: [],
@@ -89,7 +90,10 @@ class Play extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({ answerUser: event.target.value });
+    let newState = {};
+    newState.answerUser = this.state.answerUser;
+    newState.answerUser[this.state.nr_intrebare - 1] = event.target.value;
+    this.setState(newState);
   };
 
   handleShowAnswer = () => this.setState({ showAnswer: true });
@@ -98,51 +102,27 @@ class Play extends React.Component {
     let newState = {};
     newState.raspunsuri = this.state.raspunsuri;
     newState.raspunsuri.push(true);
+    newState.showAnswer = false;
+    newState.answerUser = this.state.answerUser;
+    newState.answerUser.push("");
+    newState.nr_intrebare = this.state.nr_intrebare + 1;
     this.setState(newState);
-    newState = {};
-    if (this.state.nr_intrebare < this.state.intrebari.length) {
-      newState.raspunsuri = this.state.raspunsuri;
-      newState.showAnswer = false;
-      newState.answerUser = "";
-      newState.nr_intrebare = this.state.nr_intrebare + 1;
-      this.setState(newState);
-    } else
-      alert(
-        `Ați ajuns la sfârșitul pachetului, obținând ${this.state.raspunsuri.reduce(
-          (prev, cur) => prev + (cur ? 1 : 0),
-          0
-        )} răspunsuri corecte din ${
-          this.state.nr_intrebare
-        } posibile. Felicitări!`
-      );
   };
 
   handleFalse = () => {
     let newState = {};
     newState.raspunsuri = this.state.raspunsuri;
     newState.raspunsuri.push(false);
+    newState.showAnswer = false;
+    newState.answerUser = this.state.answerUser;
+    newState.answerUser.push("");
+    newState.nr_intrebare = this.state.nr_intrebare + 1;
     this.setState(newState);
-    newState = {};
-    if (this.state.nr_intrebare < this.state.intrebari.length) {
-      newState.raspunsuri = this.state.raspunsuri;
-      newState.showAnswer = false;
-      newState.answerUser = "";
-      newState.nr_intrebare = this.state.nr_intrebare + 1;
-      this.setState(newState);
-    } else
-      alert(
-        `Ați ajuns la sfârșitul pachetului, obținând ${this.state.raspunsuri.reduce(
-          (prev, cur) => prev + (cur ? 1 : 0),
-          0
-        )} răspunsuri corecte din ${
-          this.state.nr_intrebare
-        } posibile. Felicitări!`
-      );
   };
 
   render() {
     console.log(this.state.loading);
-    return (
+    return this.state.nr_intrebare <= this.state.intrebari.length ? (
       <div className="gamepage">
         <div className="text">
           <div className="question">
@@ -218,7 +198,7 @@ class Play extends React.Component {
               }}
             />
             {this.state.intrebari[this.state.nr_intrebare - 1].raspuns
-              .split(/Comentariu:|Surs[aă]:|Comentariu|Surs[aă]|S:|C:/)
+              .split(/Comentari[ui]:|Surs[aă]:|Comentariu|Surs[aă]|S:|C:/)
               .map((s, i, a) =>
                 s.trim().length > 0 ? (
                   <>
@@ -249,7 +229,7 @@ class Play extends React.Component {
         <div className="interaction">
           <div className="try">
             <input
-              value={this.state.answerUser}
+              value={this.state.answerUser[this.state.nr_intrebare - 1]}
               placeholder="Răspunsul tău..."
               onChange={this.handleChange}
             />
@@ -283,6 +263,12 @@ class Play extends React.Component {
           </div>
         </div>
       </div>
+    ) : (
+      <Endpage
+        intrebari={this.state.intrebari}
+        answerUser={this.state.answerUser}
+        judge={this.state.raspunsuri}
+      />
     );
   }
 }
