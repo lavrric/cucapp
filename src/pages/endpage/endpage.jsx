@@ -6,7 +6,7 @@ function Endpage({ intrebari, answerUser, judge }) {
   return (
     <div className="endpage">
       <div className="intro">
-        <div className="title">Cuc Review</div>
+        <div className="title">Rezumat</div>
         <div className="title">
           Scorul tău:{" "}
           <span style={{ color: "#49ad40" }}>{`${judge.reduce(
