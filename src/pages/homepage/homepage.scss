@@ -6,11 +6,11 @@
 
   .feature-list {
     padding-top: 20px;
-    height: 50vh;
+    height: auto;
     width: 100%;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }

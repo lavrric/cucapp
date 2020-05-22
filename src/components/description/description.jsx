@@ -1,15 +1,12 @@
 import React from "react";
 import "./description.scss";
 
-import logo from '../../assets/owlmov.svg'
+import logo from "../../assets/owlmov.svg";
 
 const Description = () => (
   <div className="description">
     <div className="title">
-      <img style={{height: '3.6rem'}}
-        src={logo}
-        alt=""
-      />
+      <img style={{ height: "3.6rem" }} src={logo} alt="" />
       CuCapp
     </div>
     {/* <divc className="bar" /> */}

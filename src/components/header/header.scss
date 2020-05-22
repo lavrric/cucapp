@@ -5,25 +5,27 @@ $button-color: #007bff;
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
   margin-left: -60px;
   margin-right: -60px;
   padding: 20px 60px;
   background-color: $base-color;
   height: 70px;
-  border-bottom: 1px solid $base-color;
+  //border-bottom: 1px solid $base-color;
 
   .title {
     position: relative;
     color: rgba(255, 255, 255, 1);
-    font-size: 32px;
+    font-size: 2rem;
+    height: 100%;
     display: flex;
     align-items: center;
     text-align: center;
     .beta {
-      font-size: 18px;
+      font-size: 1.2rem;
       position: absolute;
-      top: -4px;
+      top: -7px;
       right: -37px;
     }
   }
@@ -38,9 +40,79 @@ $button-color: #007bff;
     .option {
       color: rgba(255, 255, 255, 0.85);
       padding: 10px 15px;
+      text-align: end;
       &:hover {
         color: white;
       }
     }
+  }
+  .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .header {
+    padding: 20px 70px;
+    margin: 0 -70px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .header {
+    padding: 0 40px;
+    margin: 0 -40px;
+    margin-bottom: 20px;
+    .title {
+      .beta {
+        top: 12px;
+        right: -37px;
+      }
+    }
+    .options {
+      display: none;
+      transition: all 0.5s;
+    }
+    .show {
+      transition: all 0.5s;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0px;
+      width: 100vw;
+      height: auto;
+      background-color: $base-color;
+      .option {
+        color: rgba(255, 255, 255, 0.85);
+        padding-left: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex;
+        height: 45px;
+        width: 100%;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    .menu {
+      display: flex;
+      background-color: $base-color;
+      border: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header {
+    padding: 0 30px;
+    margin: 0 -30px;
+    margin-bottom: 20px;
   }
 }
