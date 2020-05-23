@@ -47,7 +47,7 @@ class GameList extends React.Component {
           id={42069}
           sezonul="Sezonul"
           etapa="Etapa"
-          nr_intrebari="Întrebări disponibile"
+          nr_intrebari="#întrebări"
           autori={["Autori"]}
           selected={this.state.selected}
           nivel="Nivel"

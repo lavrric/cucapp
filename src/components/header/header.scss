@@ -53,16 +53,22 @@ $button-color: #007bff;
 
 @media (max-width: 991.98px) {
   .header {
-    padding: 20px 70px;
-    margin: 0 -70px;
+    padding: 20px 50px;
+    margin: 0 -50px;
     margin-bottom: 20px;
   }
 }
 
 @media (max-width: 767.98px) {
   .header {
-    padding: 0 40px;
-    margin: 0 -40px;
+    z-index: 69;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 70px;
+    margin: 0;
+    padding: 0 20px;
     margin-bottom: 20px;
     .title {
       .beta {
@@ -75,18 +81,20 @@ $button-color: #007bff;
       transition: all 0.5s;
     }
     .show {
+      z-index: 69;
+      border-top: 1px solid rgba(255, 255, 255, 0.85);
       transition: all 0.5s;
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 60px;
+      top: 70px;
       left: 0px;
       width: 100vw;
       height: auto;
       background-color: $base-color;
       .option {
         color: rgba(255, 255, 255, 0.85);
-        padding-left: 40px;
+        padding-left: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -111,8 +119,8 @@ $button-color: #007bff;
 
 @media (max-width: 575.98px) {
   .header {
-    padding: 0 30px;
-    margin: 0 -30px;
+    padding: 0 20px;
+    margin: 0 0px;
     margin-bottom: 20px;
   }
 }

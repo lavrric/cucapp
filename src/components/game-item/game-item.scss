@@ -29,9 +29,14 @@
     height: 100%;
     border-bottom: 1px solid #777;
     border-left: 1px solid #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 17px 10px;
-    vertical-align: middle;
+    padding: 0 10px;
+    &.combinate {
+      display: none;
+    }
     &.autori {
       flex-grow: 6;
     }
@@ -48,6 +53,55 @@
     }
     &.nr_intrebari {
       border-right: 1px solid #777;
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .game-item {
+    height: 35px;
+    &.first {
+      height: 40px;
+    }
+    .game-item-characteristic {
+      &.autori {
+        padding: 0 5px;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .game-item {
+    height: 35px;
+    &.first {
+      height: 40px;
+    }
+    .game-item-characteristic {
+      height: 100%;
+      &.autori {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .game-item {
+    .game-item-characteristic {
+      &.sezonul,
+      &.etapa {
+        display: none;
+      }
+      &.combinate {
+        display: flex;
+        padding: 0 5px;
+        flex-grow: 9;
+      }
+      &.id {
+        width: 40px;
+      }
     }
   }
 }

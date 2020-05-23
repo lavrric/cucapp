@@ -1,57 +1,78 @@
 $base-color: #7952b3;
 
-
 li.ais-Hits-item {
-    width: calc(100% - 1rem);
-    border-radius: 7px;
-    border-color: $base-color;
+  width: calc(100% - 1rem);
+  border-radius: 7px;
+  border-color: $base-color;
 }
 
-.ais-SearchBox-submitIcon{
-    display: none
+.ais-SearchBox-submitIcon {
+  display: none;
 }
 
-.ais-SearchBox-form   {
-    background: none;
-    color: grey;
-    font-size: 18px;
-    padding: 5px 10px;
-    margin: 10px auto;
-    display: block;
-    width: 70%;
-
-    &:focus {
-      outline: none;
-    }
+.ais-SearchBox-form {
+  background: none;
+  color: grey;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  &:focus {
+    outline: none;
+  }
 }
 
-.ais-SearchBox-input{
-    &:focus {
-      outline: none;
-    }
-    border: 1px solid $base-color;
-    padding: 5px 10px;
-    border-radius: 7px;
-    
+.ais-SearchBox-input {
+  width: 70%;
+  &:focus {
+    outline: none;
+  }
+  border: 1px solid $base-color;
+  padding: 5px 10px;
+  border-radius: 7px;
 }
 
-.ais-SearchBox-resetIcon{
-    display: none
+.ais-SearchBox-resetIcon {
+  display: none;
 }
 
-.ais-Pagination-list{
-    margin: 30px 0px 50px 0px;
+.ais-Pagination-list {
+  margin: 30px 0px 50px 0px;
 }
 
-.ais-Pagination-link{
+.ais-Pagination-link {
+  color: $base-color;
+  &:hover {
     color: $base-color;
-    &:hover {
-        color: $base-color;
-    }
+  }
 }
 
 .ais-Pagination-item--selected .ais-Pagination-link {
-    color: #fff;
-    background-color: $base-color;
-    border-color: $base-color;
+  color: #fff;
+  background-color: $base-color;
+  border-color: $base-color;
+}
+
+@media (max-width: 767.98px) {
+  .searchbar {
+    z-index: 0;
+    margin-top: 80px;
+    .ais-SearchBox-input:focus {
+      width: 100%;
+      transition: all 0.5s;
+    }
+  }
+  .ais-SearchBox,
+  .ais-Hits {
+    padding: 0 10px;
+  }
+  li.ais-Hits-item {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .ais-Pagination {
+    width: 100%;
+    overflow-y: scroll;
+  }
 }

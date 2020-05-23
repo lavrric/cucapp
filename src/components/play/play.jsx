@@ -125,7 +125,7 @@ class Play extends React.Component {
     return this.state.nr_intrebare <= this.state.intrebari.length ? (
       <div className="gamepage">
         <div className="text">
-          <div className="question">
+          <div className={`question ${this.state.showAnswer ? "" : "show"}`}>
             <div className="title">
               {this.state.loading ? (
                 <b>Se încarcă...</b>
@@ -184,7 +184,7 @@ class Play extends React.Component {
             )}
           </div>
           <div
-            className="answer"
+            className={`answer ${this.state.showAnswer ? "show" : ""}`}
             style={{
               visibility: this.state.showAnswer ? "visible" : "hidden",
               position: "relative",
@@ -207,8 +207,8 @@ class Play extends React.Component {
                       style={{
                         fontWeight: i === 0 && a.length > 1 ? "bold" : "normal",
                         paddingBottom: "3px",
-                        textAlign:
-                          s.trim().substr(0, 4) === "http" ? "left" : "justify",
+                        overflowWrap: "break-word",
+                        wordWrap: "break-word",
                       }}
                     >
                       {s.trim().substr(0, 4) === "http"
@@ -227,7 +227,7 @@ class Play extends React.Component {
         </div>
 
         <div className="interaction">
-          <div className="try">
+          <div className={`try ${this.state.showAnswer ? "" : "show"}`}>
             <input
               value={this.state.answerUser[this.state.nr_intrebare - 1]}
               placeholder="Răspunsul tău..."
@@ -238,12 +238,12 @@ class Play extends React.Component {
             </CustomButton>
           </div>
           <div
-            className="judge"
+            className={`judge ${this.state.showAnswer ? "show" : ""}`}
             style={{
               visibility: this.state.showAnswer ? "visible" : "hidden",
             }}
           >
-            <div className="title">Consideri că răspunsul tău este corect?</div>
+            <div className="title">Ai răspuns corect?</div>
             <CustomButton
               onClick={this.handleTrue}
               style={{

@@ -33,13 +33,12 @@
       }
 
       .option {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
         border-top: 1px solid #777;
         border-left: 1px solid #777;
         width: 50px;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 5px;
         text-align: justify;
 
         &.intrebare {
@@ -61,6 +60,29 @@
     }
     &:last-child {
       border-bottom: 1px solid #777;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .endpage {
+    margin-top: 70px;
+    padding: 10px;
+    .intro {
+      .title {
+        font-size: 1.5rem;
+      }
+    }
+    .review {
+      .review-item {
+        .option {
+          font-size: 0.75rem;
+          width: 30px;
+          &.corect {
+            padding: 5px 0px;
+          }
+        }
+      }
     }
   }
 }

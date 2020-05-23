@@ -36,12 +36,13 @@ const GameItem = ({
       onClick={(e) => handleSelect(id)}
     >
       <div className="game-item-characteristic id">{id_tabel}</div>
+      <div className="game-item-characteristic combinate">{`${sezonul} (${etapa})`}</div>
       <div className="game-item-characteristic sezonul">{sezonul}</div>
       <div className="game-item-characteristic etapa">{etapa}</div>
       <div className="game-item-characteristic autori">{autori.join(", ")}</div>
       <div
         className="game-item-characteristic nivel"
-        style={{ color: color, "fontWeight": first ? "regular" : "bold" }}
+        style={{ color: color, fontWeight: first ? "regular" : "bold" }}
       >
         {nivel}
       </div>

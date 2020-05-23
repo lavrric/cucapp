@@ -8,7 +8,7 @@
   input {
     background: none;
     color: grey;
-    font-size: 18px;
+    font-size: 1.1rem;
     padding: 10px 10px 10px 15px;
     margin: 0px 0px 20px auto;
     display: block;
@@ -30,7 +30,7 @@
   .game-list-items {
     max-height: 60vh;
     overflow-y: overlay;
-    //border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -48,5 +48,60 @@
   .fired-button,
   .unfired-button {
     margin: 20px 0px 0 auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .game-list {
+    padding: 0 20px;
+    margin-top: 80px;
+
+    & > input {
+      font-size: 0.75rem;
+      height: 30px;
+      width: 35%;
+      padding-left: 10px;
+      margin: 0 0 10px auto;
+      transition: all 0.5s;
+      &:focus {
+        width: 100%;
+        transition: all 0.5s;
+      }
+    }
+
+    .fired-button,
+    .unfired-button {
+      min-height: 35px;
+      height: 40px;
+      width: 125px;
+      border-radius: 1rem;
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .game-list {
+    padding: 0 20px;
+
+    & > input {
+      font-size: 0.75rem;
+      height: 30px;
+      width: 35%;
+      padding-left: 10px;
+      margin: 0 0 10px auto;
+      transition: all 0.5s;
+      &:focus {
+        width: 100%;
+        transition: all 0.5s;
+      }
+    }
+
+    .fired-button,
+    .unfired-button {
+      min-height: 35px;
+      height: 40px;
+      width: 125px;
+      border-radius: 1rem;
+    }
   }
 }
