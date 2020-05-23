@@ -21,7 +21,7 @@ function Endpage({ intrebari, answerUser, judge }) {
         </div>
       </div>
       <div className="review">
-        <div className="review-item" style={{ cursor: "context-menu " }}>
+        <div className="review-item first" style={{ cursor: "context-menu " }}>
           <div className="option id">#</div>
           <div className="option intrebare">
             Întrebarea (click pentru întrebarea completă)

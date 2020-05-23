@@ -15,7 +15,8 @@ class Timer extends React.Component {
       seconds: nextProps.time - Math.floor(nextProps.time / 60) * 60,
     };
 
-    this.setState(newState, this.setTimer());
+    if (nextProps.nr_intrebare !== this.props.nr_intrebare)
+      this.setState(newState, this.setTimer());
   }
 
   setTimer() {

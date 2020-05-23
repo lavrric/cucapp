@@ -19,6 +19,7 @@
       flex-direction: row;
       width: 100%;
       min-height: 50px;
+      text-align: center;
       &:hover {
         box-shadow: inset 0px 0px 5px 0px #4c7899;
       }
@@ -26,20 +27,30 @@
       &.selected {
         border-top: 2px solid #7952b3;
         border-bottom: 2px solid #7952b3;
+        text-align: center;
       }
 
       &.grey {
         background-color: #eeeeee;
       }
 
+      &.first {
+        text-align: center;
+        .option {
+          padding-top: 15px;
+        }
+      }
+
       .option {
         overflow-wrap: break-word;
         word-wrap: break-word;
+        display: table-cell;
+        vertical-align: middle;
         border-top: 1px solid #777;
         border-left: 1px solid #777;
         width: 50px;
-        padding: 5px;
-        text-align: justify;
+        padding: 10px 5px;
+        text-align: inherit;
 
         &.intrebare {
           flex-grow: 6;
@@ -79,7 +90,13 @@
           font-size: 0.75rem;
           width: 30px;
           &.corect {
-            padding: 5px 0px;
+            padding: 5px 2px;
+          }
+        }
+        &.first {
+          .option {
+            padding-top: 10px;
+            padding-bottom: 10px;
           }
         }
       }

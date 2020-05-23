@@ -151,6 +151,7 @@ class Play extends React.Component {
                     <></>
                   ) : (
                     <Timer
+                      nr_intrebare={this.state.nr_intrebare}
                       time={
                         60 +
                         Math.floor(
