@@ -5,6 +5,7 @@ $sub-button-color: #6c757d;
 
 .gamepage {
   position: relative;
+  margin-top: 90px;
   min-height: calc(90vh - 70px);
   font-size: 1.1rem;
   text-align: justify;
@@ -58,7 +59,7 @@ $sub-button-color: #6c757d;
         width: 100%;
         height: 100%;
         //background-image: url(https://scontent-otp1-1.xx.fbcdn.net/v/t1.15752-9/96805669_2694757550634092_958119500505415680_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=s4S64bMzipcAX8KvKeo&_nc_ht=scontent-otp1-1.xx&oh=90eea6b0a893a8aea3d836a65092758e&oe=5EE254FE);
-        background-size: contain;
+        //background-size: contain;
         background-position: center;
       }
     }
@@ -85,7 +86,7 @@ $sub-button-color: #6c757d;
       background-color: white;
       color: $sub-button-color;
       flex-grow: 1;
-      margin-right: 20px;
+      margin-right: 15px;
       font-size: 1.1rem;
       padding: 10px 10px 10px 5px;
       display: block;
@@ -103,8 +104,10 @@ $sub-button-color: #6c757d;
       flex-direction: row;
       justify-content: space-between;
       .custom-button {
+        padding: 0 15px;
+        min-width: 40px;
         flex-grow: 1;
-        margin: 0 0 0 20px;
+        margin: 0 0 0 15px;
       }
     }
     .title {
@@ -139,27 +142,28 @@ $sub-button-color: #6c757d;
         display: none;
       }
       .show {
+        .title {
+          font-size: 1.3rem;
+        }
+        input {
+          margin-right: 10px;
+        }
         display: flex;
         width: 100%;
         align-items: center;
-        &.try {
-          input {
-            min-width: 100px;
-
-            &:focus {
-              width: 100%;
-            }
-            &:focus + .custom-button {
-              display: none;
-            }
-          }
-        }
         .custom-button {
           border-radius: 0.5rem;
-          min-width: 50px;
+          margin: 0 0 0 10px;
+          padding: 0 15px;
+          min-width: 40px;
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+        &.try {
+          input {
+            min-width: 100px;
+          }
         }
       }
     }

@@ -20,8 +20,8 @@ const HomePage = () => (
       />
       <Feature
         title="Caută Întrebări"
-        text="Mick-unealta secretă! Acestă mick-unealtă vă permite să gasiți intrebarea aia care vă stă de atâta timp pe limbă, dar nu v-o puteți aminti. Perfect într-adevăr! "
-        a="/"
+        text="Mick-unealta secretă! Acestă mick-unealtă vă permite să gasiți intrebarea aia care vă stă de atâta timp pe limbă, dar nu v-o puteți aminti. Perfect într-adevăr!"
+        a="/search"
       />
     </div>
   </div>

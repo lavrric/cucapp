@@ -3,13 +3,17 @@ $sub-color: #ffe484;
 $button-color: #007bff;
 
 .header {
+  z-index: 69;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  margin-left: -60px;
-  margin-right: -60px;
-  padding: 20px 60px;
+  padding: 0px 60px;
   background-color: $base-color;
   height: 70px;
   //border-bottom: 1px solid $base-color;
@@ -25,7 +29,7 @@ $button-color: #007bff;
     .beta {
       font-size: 1.2rem;
       position: absolute;
-      top: -7px;
+      top: 13px;
       right: -37px;
     }
   }
@@ -54,28 +58,13 @@ $button-color: #007bff;
 @media (max-width: 991.98px) {
   .header {
     padding: 20px 50px;
-    margin: 0 -50px;
     margin-bottom: 20px;
   }
 }
 
 @media (max-width: 767.98px) {
   .header {
-    z-index: 69;
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    height: 70px;
-    margin: 0;
     padding: 0 20px;
-    margin-bottom: 20px;
-    .title {
-      .beta {
-        top: 12px;
-        right: -37px;
-      }
-    }
     .options {
       display: none;
       transition: all 0.5s;
@@ -121,6 +110,5 @@ $button-color: #007bff;
   .header {
     padding: 0 20px;
     margin: 0 0px;
-    margin-bottom: 20px;
   }
 }

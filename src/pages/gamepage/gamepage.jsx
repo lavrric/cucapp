@@ -6,7 +6,7 @@ function GamePage() {
   let { id } = useParams();
   return (
     <div>
-      <Play id={id} />
+      <Play key={id} id={id} />
     </div>
   );
 }

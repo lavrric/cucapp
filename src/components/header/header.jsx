@@ -35,8 +35,11 @@ function Header() {
         >
           Caută întrebări
         </Link>
-        {/* <Link onClick={() => setCount((count + 1) % 2)} className="option">Înregistrează-te</Link> */}
-        <Link onClick={() => setCount((count + 1) % 2)} className="option">
+        <Link
+          onClick={() => setCount((count + 1) % 2)}
+          className="option"
+          to="/about"
+        >
           Despre proiect
         </Link>
       </div>

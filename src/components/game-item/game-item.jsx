@@ -30,24 +30,39 @@ const GameItem = ({
   }
   return (
     <div
-      className={`${grey ? "grey" : ""} ${first ? "first" : ""} ${
+      className={`${grey ? "grey" : ""}${first ? "first" : ""} ${
         selected === id ? "selected" : ""
       } game-item`}
       onClick={(e) => handleSelect(id)}
     >
-      <div className="game-item-characteristic id">{id_tabel}</div>
-      <div className="game-item-characteristic combinate">{`${sezonul} (${etapa})`}</div>
-      <div className="game-item-characteristic sezonul">{sezonul}</div>
-      <div className="game-item-characteristic etapa">{etapa}</div>
-      <div className="game-item-characteristic autori">{autori.join(", ")}</div>
+      <div className="game-item-characteristic id">
+        <span>{id_tabel}</span>
+      </div>
+      <div className="game-item-characteristic combinate">
+        <span>
+          {`${
+            first ? sezonul : sezonul.substring(5, sezonul.length)
+          } ─ ${etapa}`}{" "}
+          <span style={{ color: color }}>({nivel})</span>
+        </span>
+      </div>
+      <div className="game-item-characteristic sezonul">
+        <span>{sezonul}</span>
+      </div>
+      <div className="game-item-characteristic etapa">
+        <span>{etapa}</span>
+      </div>
+      <div className="game-item-characteristic autori">
+        <span>{autori.join(", ")}</span>
+      </div>
       <div
         className="game-item-characteristic nivel"
         style={{ color: color, fontWeight: first ? "regular" : "bold" }}
       >
-        {nivel}
+        <span>{nivel}</span>
       </div>
       <div className="game-item-characteristic nr_intrebari">
-        {nr_intrebari}
+        <span>{nr_intrebari}</span>
       </div>
     </div>
   );

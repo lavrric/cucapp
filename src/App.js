@@ -5,8 +5,8 @@ import Header from "./components/header/header";
 import HomePage from "./pages/homepage/homepage";
 import GamePage from "./pages/gamepage/gamepage";
 import SelectPage from "./pages/selectpage/selectpage";
-import SearchPage from "./pages/searchpage/searchpage"
-import EndPage from "./pages/endpage/endpage";
+import SearchPage from "./pages/searchpage/searchpage";
+import AboutPage from "./pages/aboutpage/aboutpage";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends React.Component {
             )}
           />
           <Route exact path="/search" component={SearchPage} />
-          <Route exact path="/review" component={EndPage} />
+          <Route exact path="/about" component={AboutPage} />
         </Switch>
       </BrowserRouter>
     );

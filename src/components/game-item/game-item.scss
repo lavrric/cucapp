@@ -1,15 +1,18 @@
+$base-color: #7952b3;
+
 .game-item {
-  width: 100%;
+  overflow-x: visible;
   height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  //padding: 15px;
-
+  border-bottom: 1px solid #777;
+  border-left: 1px solid #777;
   &.first {
-    padding-right: 0px;
+    padding-right: 4px;
     border-top: 1px solid #777;
+    border-right: 1px solid #777;
   }
 
   &:hover {
@@ -17,23 +20,24 @@
   }
 
   &.selected {
-    border-top: 2px solid #7952b3;
-    border-bottom: 2px solid #7952b3;
+    border-top: 2px solid $base-color;
+    border-bottom: 2px solid $base-color;
   }
 
   &.grey {
     background-color: #eeeeee;
   }
   .game-item-characteristic {
+    span {
+      margin: auto;
+    }
     width: 60px;
     height: 100%;
-    border-bottom: 1px solid #777;
-    border-left: 1px solid #777;
+    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     padding: 0 10px;
+    border-left: 1px solid #777;
     &.combinate {
       display: none;
     }
@@ -49,41 +53,36 @@
       flex-grow: 2;
     }
     &.id {
+      border-left: none;
       flex-grow: 0;
-    }
-    &.nr_intrebari {
-      border-right: 1px solid #777;
-    }
-  }
-}
-
-@media (max-height: 400px) {
-  .game-item {
-    height: 35px;
-    &.first {
-      height: 40px;
-    }
-    .game-item-characteristic {
-      &.autori {
-        padding: 0 5px;
-        font-size: 0.75rem;
-      }
     }
   }
 }
 
 @media (max-width: 767.98px) {
   .game-item {
-    height: 35px;
+    height: 38px;
+    &:hover {
+      box-shadow: none;
+    }
     &.first {
       height: 40px;
     }
     .game-item-characteristic {
       height: 100%;
-      &.autori {
+
+      &.nr_intrebari {
         display: none;
       }
+      &.autori {
+        padding: 0 5px;
+        font-size: 0.75rem;
+        flex-grow: 12;
+      }
     }
+  }
+  &.first > .game-item-characteristic.autori {
+    font-size: 1rem;
   }
 }
 
@@ -91,17 +90,27 @@
   .game-item {
     .game-item-characteristic {
       &.sezonul,
+      &.nivel,
       &.etapa {
         display: none;
       }
       &.combinate {
         display: flex;
-        padding: 0 5px;
-        flex-grow: 9;
+        padding: 0 2px;
+        flex-grow: 7;
       }
       &.id {
         width: 40px;
       }
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .game-item {
+    height: 38px;
+    &.first {
+      height: 40px;
     }
   }
 }

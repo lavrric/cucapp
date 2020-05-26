@@ -1,5 +1,9 @@
 $base-color: #7952b3;
 
+.searchbar {
+  margin-top: 80px;
+}
+
 li.ais-Hits-item {
   width: calc(100% - 1rem);
   border-radius: 7px;
@@ -21,6 +25,11 @@ li.ais-Hits-item {
   &:focus {
     outline: none;
   }
+}
+
+span.ais-Highlight-nonHighlighted {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .ais-SearchBox-input {
@@ -56,8 +65,6 @@ li.ais-Hits-item {
 
 @media (max-width: 767.98px) {
   .searchbar {
-    z-index: 0;
-    margin-top: 80px;
     .ais-SearchBox-input:focus {
       width: 100%;
       transition: all 0.5s;
@@ -66,10 +73,6 @@ li.ais-Hits-item {
   .ais-SearchBox,
   .ais-Hits {
     padding: 0 10px;
-  }
-  li.ais-Hits-item {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
   }
   .ais-Pagination {
     width: 100%;

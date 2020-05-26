@@ -21,70 +21,73 @@ class Play extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const func1 = async () => {
-      let newState = {};
-      await firestore
-        .collection("metadata")
-        .doc("metadata")
-        .get()
-        .then((doc) => (newState.metadata = doc.data().pachete[this.props.id]));
-      await firestore
-        .doc(newState.metadata.db_link)
-        .get()
-        .then((doc) => (newState.intrebari = doc.data().arr));
-      newState.metadata.full_etapa = `${newState.metadata.sezonul} ${newState.metadata.etapa}`;
-      this.setState({ ...newState, loading: false });
-    };
-    function shuffle(array) {
-      var currentIndex = array.length,
-        temporaryValue,
-        randomIndex;
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-      return array;
+  func1 = async () => {
+    let newState = {};
+    await firestore
+      .collection("metadata")
+      .doc("metadata")
+      .get()
+      .then((doc) => (newState.metadata = doc.data().pachete[this.props.id]));
+    await firestore
+      .doc(newState.metadata.db_link)
+      .get()
+      .then((doc) => (newState.intrebari = doc.data().arr));
+    newState.metadata.full_etapa = `${newState.metadata.sezonul} ${newState.metadata.etapa}`;
+    this.setState({ ...newState, loading: false });
+  };
+
+  shuffle = (array) => {
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
     }
-    const func2 = async () => {
-      let pachete = {};
-      let intrebari = [];
+    return array;
+  };
+
+  func2 = async () => {
+    let pachete = {};
+    let intrebari = [];
+    await firestore
+      .collection("metadata")
+      .doc("metadata")
+      .get()
+      .then((doc) => (pachete = doc.data().pachete));
+    pachete = this.shuffle(pachete);
+    console.log(pachete);
+    for (let index = 0; index < 10; index++) {
+      let element = [];
       await firestore
-        .collection("metadata")
-        .doc("metadata")
+        .doc(pachete[index].db_link)
         .get()
-        .then((doc) => (pachete = doc.data().pachete));
-      pachete = shuffle(pachete);
-      console.log(pachete);
-      for (let index = 0; index < 10; index++) {
-        let element = [];
-        await firestore
-          .doc(pachete[index].db_link)
-          .get()
-          .then((doc) => (element = doc.data()));
-        const intreb =
-          element.arr[Math.floor(Math.random() * element.arr.length)];
-        intrebari.push({
-          ...intreb,
-          full_etapa: `${pachete[index].sezonul} ${pachete[index].etapa}`,
-        });
-      }
-      this.setState({ intrebari, loading: false });
-    };
+        .then((doc) => (element = doc.data()));
+      const intreb =
+        element.arr[Math.floor(Math.random() * element.arr.length)];
+      intrebari.push({
+        ...intreb,
+        full_etapa: `${pachete[index].sezonul} ${pachete[index].etapa}`,
+      });
+    }
+    this.setState({ intrebari, loading: false });
+  };
+
+  componentDidMount() {
     if (this.props.id != 424242) {
       try {
-        func1();
+        this.func1();
       } catch (err) {
-        func1();
+        this.func1();
       }
     } else {
       try {
-        func2();
+        this.func2();
       } catch (err) {
-        func2();
+        this.func2();
       }
     }
   }
@@ -151,16 +154,17 @@ class Play extends React.Component {
                     <></>
                   ) : (
                     <Timer
-                      nr_intrebare={this.state.nr_intrebare}
+                      key={this.state.nr_intrebare}
                       time={
                         60 +
-                        Math.floor(
-                          (this.state.intrebari[
-                            this.state.nr_intrebare - 1
-                          ].intrebare.split(" ").length *
-                            9) /
-                            20
-                        )
+                        (this.state.loading ||
+                          Math.floor(
+                            (this.state.intrebari[
+                              this.state.nr_intrebare - 1
+                            ].intrebare.split(" ").length *
+                              9) /
+                              20
+                          ))
                       }
                     />
                   )}
