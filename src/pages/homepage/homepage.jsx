@@ -20,7 +20,7 @@ const HomePage = () => (
       />
       <Feature
         title="Caută Întrebări"
-        text="Găsește întrebarea aia care îți stă de mult timp pe limbă, însă nu ți-o amintești. Caută întrebări de la un anumit autor, despre cartea preferata, și așa mai departe... "
+        text="Găsește întrebarea aia care îți stă de mult timp pe limbă, însă nu ți-o amintești. Caută întrebări după autor, întrebare, răspuns, sursă."
         a="/search"
       />
     </div>

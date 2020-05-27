@@ -14,10 +14,10 @@ const AboutPage = () => (
         La moment, site-ul este în versiune beta – din păcate, întrebările cu
         material distributiv nu sunt disponibile. De asemenea, folosim un
         hosting gratuit și din această cauză, vă îndemnăm să nu faceți refresh
-        la pagina.
+        la pagină.
         <div className="br" />
         Acest proiect a fost elaborat din propria inițiativă de către jucătorii
-        echipei Jean-Jacques Pidjaques, Babin Claudiu și Mihail Lavric. În cazul
+        echipei Jean-Jacques Pidjaques, Claudiu Babin și Mihail Lavric. În cazul
         în care aveți sugestii sau reclamații, nu ezitați să ne contactați pe
         Facebook:{" "}
         <a
