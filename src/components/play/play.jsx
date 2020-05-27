@@ -177,7 +177,7 @@ class Play extends React.Component {
             ) : (
               <>
                 <br />
-                <span style={{ fontWeight: "bold" }}>
+                <span>
                   {`Etapa: ${
                     this.props.id == 424242
                       ? this.state.intrebari[this.state.nr_intrebare - 1]
