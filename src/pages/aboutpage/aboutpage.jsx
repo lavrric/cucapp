@@ -5,26 +5,21 @@ import logo from "../../assets/owlmov.svg";
 const AboutPage = () => (
   <div className="aboutpage">
     <div className="info">
-      <div className="title">DESPRE CuCapp</div>
+      <div className="title">Despre proiect</div>
       <div className="descriere">
-        Erau odată, demult, 2 adolescenți pasionați de CUC și informatică:
-        Mihail și Claudiu. Totul mergea bine, în fiecare luni echipa
-        Jean-Jacques Pidjaques întrunindu-se trandioțional la EPIQ. Frumos, nu?
-        Însă, a apărut carantina :((. <div className="br" />
-        Fiindu-i echipei dor să joace CUC, au decis să joace niște pachete din
-        arhivă pentru a se antrena. Problema era ca răspunsurile veneau direct
-        după întrebare și mereu era nevoie de un moderator care nu joacă să
-        citească întrebările. Astfel a apărut ideea unei platforme cu ajutorul
-        căreia va fi mai comod de jucat CUC, fără a apela la vreun moderator.
+        CuCapp a fost creat pentru a familiariza oamenii cu frumusețea jocurilor
+        intelectuale, și, de asemenea, pentru a face antrenamentul mai ușor
+        pentru echipe, în special pe timp de carantină.
         <div className="br" />
-        Așa a apărut CuCapp.
+        La moment, site-ul este în versiune beta – din păcate, întrebările cu
+        material distributiv nu sunt disponibile. De asemenea, folosim un
+        hosting gratuit și din această cauză, vă îndemnăm să nu faceți refresh
+        la pagina.
         <div className="br" />
-        La moment, site-ul e în versiunea beta, deci mai avem de rezolvat unele
-        bug-uri. La fel, din cauza că suntem nevoiți să folosim un serviciu de
-        hosting gratuit, nu vă recomandăm să faceți refresh la pagină. Suntem
-        întotdeauna deschiși la propuneri pentru features noi, iar în caz că
-        aveți una, sau ați descoperit un bug, puteți să ne contactați pe oricare
-        din noi pe facebook:{" "}
+        Acest proiect a fost elaborat din propria inițiativă de către jucătorii
+        echipei Jean-Jacques Pidjaques, Babin Claudiu și Mihail Lavric. În cazul
+        în care aveți sugestii sau reclamații, nu ezitați să ne contactați pe
+        Facebook:{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -41,6 +36,15 @@ const AboutPage = () => (
           Claudiu
         </a>
         .
+        <div className="br" />
+        Dacă doriți să susțineți financiar proiectul, o puteți face chiar aici:{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.paypal.me/cucapp"
+        >
+          https://www.paypal.me/cucapp
+        </a>
         <div className="br" />
         Vă urăm un joc plăcut!
       </div>

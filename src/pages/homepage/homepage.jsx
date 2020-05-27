@@ -10,7 +10,7 @@ const HomePage = () => (
     <div className="feature-list">
       <Feature
         title="Joacă Pachete"
-        text="Joacă pachete de Ce? Unde? Când? din arhiva Clubului Moldovenesc de Jocuri Intelectuale. La moment nu este disponibil un număr mare de pachete, însă, în curând vom adăuga mai multe."
+        text="Joacă pachete de Ce? Unde? Când? din arhiva Clubului Moldovenesc de Jocuri Intelectuale. La moment sunt disponibile circa 3000 de întrebări și în fiecare zi adăugăm pachete noi."
         a="/select"
       />
       <Feature
@@ -20,7 +20,7 @@ const HomePage = () => (
       />
       <Feature
         title="Caută Întrebări"
-        text="Mick-unealta secretă! Acestă mick-unealtă vă permite să gasiți intrebarea aia care vă stă de atâta timp pe limbă, dar nu v-o puteți aminti. Perfect într-adevăr!"
+        text="Găsește întrebarea aia care îți stă de mult timp pe limbă, însă nu ți-o amintești. Caută întrebări de la un anumit autor, despre cartea preferata, și așa mai departe... "
         a="/search"
       />
     </div>
