@@ -10,7 +10,7 @@ $base-color: #7952b3;
   border-bottom: 1px solid #777;
   border-left: 1px solid #777;
   &.first {
-    padding-right: 4px;
+    padding-right: 5px;
     border-top: 1px solid #777;
     border-right: 1px solid #777;
   }
@@ -21,7 +21,7 @@ $base-color: #7952b3;
 
   &.selected {
     border-top: 2px solid $base-color;
-    border-bottom: 2px solid $base-color;
+    border-bottom: 3px solid $base-color;
   }
 
   &.grey {
@@ -29,7 +29,7 @@ $base-color: #7952b3;
   }
   .game-item-characteristic {
     span {
-      margin: auto;
+      margin: 0 auto;
     }
     width: 60px;
     height: 100%;
@@ -96,11 +96,17 @@ $base-color: #7952b3;
       }
       &.combinate {
         display: flex;
-        padding: 0 2px;
+        padding: 0 1px;
+        font-size: 0.8rem;
         flex-grow: 7;
       }
       &.id {
         width: 40px;
+      }
+    }
+    &.first {
+      .game-item-characteristic {
+        font-size: 0.9rem;
       }
     }
   }

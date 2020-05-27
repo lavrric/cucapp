@@ -25,11 +25,19 @@ const AboutPage = () => (
         întotdeauna deschiși la propuneri pentru features noi, iar în caz că
         aveți una, sau ați descoperit un bug, puteți să ne contactați pe oricare
         din noi pe facebook:{" "}
-        <a target="_blank" href="https://www.facebook.com/mihail.lavric.1">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.facebook.com/mihail.lavric.1"
+        >
           Mihail
         </a>
         {", "}
-        <a target="_blank" href="https://www.facebook.com/claudebbn">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.facebook.com/claudebbn"
+        >
           Claudiu
         </a>
         .

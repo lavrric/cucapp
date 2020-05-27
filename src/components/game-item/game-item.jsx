@@ -40,9 +40,7 @@ const GameItem = ({
       </div>
       <div className="game-item-characteristic combinate">
         <span>
-          {`${
-            first ? sezonul : sezonul.substring(5, sezonul.length)
-          } ─ ${etapa}`}{" "}
+          {`${first ? sezonul : sezonul.substring(5, sezonul.length)}_${etapa}`}{" "}
           <span style={{ color: color }}>({nivel})</span>
         </span>
       </div>

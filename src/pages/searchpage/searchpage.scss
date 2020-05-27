@@ -33,7 +33,7 @@ span.ais-Highlight-nonHighlighted {
 }
 
 .ais-SearchBox-input {
-  width: 70%;
+  width: 80%;
   &:focus {
     outline: none;
   }
@@ -65,9 +65,12 @@ span.ais-Highlight-nonHighlighted {
 
 @media (max-width: 767.98px) {
   .searchbar {
-    .ais-SearchBox-input:focus {
-      width: 100%;
-      transition: all 0.5s;
+    .ais-SearchBox-input {
+      font-size: 0.9rem;
+      &:focus {
+        width: 100%;
+        transition: all 0.5s;
+      }
     }
   }
   .ais-SearchBox,

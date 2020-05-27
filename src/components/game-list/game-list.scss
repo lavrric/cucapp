@@ -1,3 +1,7 @@
+$base-color: #7952b3;
+$sub-color: #ffe484;
+$button-color: #007bff;
+
 .game-list {
   margin-top: 90px;
   width: 100%;
@@ -9,14 +13,15 @@
   input {
     background: none;
     color: #777;
-    font-size: 1.1rem;
-    padding: 10px 10px 10px 15px;
+    font-size: 1rem;
+    height: 35px;
+    padding: 10px;
     margin: 0px 0px 20px auto;
     display: block;
     width: 400px;
     border: none;
-    border-radius: 20px;
-    border: 1px solid grey;
+    border-radius: 0.5rem;
+    border: 1px solid $base-color;
 
     &:focus {
       outline: none;
@@ -33,7 +38,8 @@
     position: relative;
     max-height: 60vh;
     overflow-x: visible;
-    overflow-y: auto;
+    overflow-y: scroll;
+    border-right: 1px solid #777;
     border-bottom: 1px solid #777;
 
     &::-webkit-scrollbar {
@@ -62,15 +68,15 @@
 
     & > input {
       font-size: 0.75rem;
-      height: 30px;
-      width: 35%;
+      height: 28px;
+      width: 69%;
       padding-left: 10px;
-      margin: 5px 0 15px auto;
+      margin: 5px auto 15px auto;
       transition: all 0.5s;
-      &:focus {
-        width: 100%;
-        transition: all 0.5s;
-      }
+      // &:focus {
+      //   width: 100%;
+      //   transition: all 0.5s;
+      // }
     }
 
     .fired-button,

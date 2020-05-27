@@ -77,7 +77,7 @@ class Play extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.id != 424242) {
+    if (this.props.id !== "424242") {
       try {
         this.func1();
       } catch (err) {
@@ -177,6 +177,7 @@ class Play extends React.Component {
             ) : (
               <>
                 <br />
+<<<<<<< HEAD
                 <span>
                   {`Etapa: ${
                     this.props.id == 424242
@@ -185,6 +186,14 @@ class Play extends React.Component {
                       : this.state.metadata.full_etapa
                   }`}
                 </span>
+=======
+                {`Etapa: ${
+                  this.props.id === "424242"
+                    ? this.state.intrebari[this.state.nr_intrebare - 1]
+                        .full_etapa
+                    : this.state.metadata.full_etapa
+                }`}
+>>>>>>> 1e635fa438b83a06d79b1ff3912d2c406c925372
               </>
             )}
           </div>
